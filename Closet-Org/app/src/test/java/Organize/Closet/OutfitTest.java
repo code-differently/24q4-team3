@@ -3,13 +3,6 @@ package Organize.Closet;
 import org.junit.jupiter.api.Test;
 
 public class OutfitTest {
-    
-    @Test 
-    public void testGetColor() {
-        //Arrange 
-        //Act
-        //Assert
-    }
 
     @Test 
     public void testDescribeOutfit() {
