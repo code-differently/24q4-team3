@@ -1,4 +1,4 @@
-package Organize;
+package Organize.Closet;
 
 public class ArticleOfClothingTest {
     
