@@ -2,11 +2,20 @@ package Organize.Closet;
 
 public class Outfit {
     private BottomItems pants;
+    private TopItems shirt;
+    private Fullbody fullBody;
     // private Weather weather;  
 
-    public Outfit(BottomItems pants) {
+    public Outfit(BottomItems pants, TopItems shirt) {
         this.pants = pants;
+        this.fullBody = null;
         // this.weather = weather;
+    }
+
+    public Outfit(Fullbody fullBody) {
+      this.fullBody = fullBody;
+      this.pants = null;
+      this.top = null;
     }
 
     public BottomItems getPants() {
@@ -17,8 +26,24 @@ public class Outfit {
         this.pants = pants;
       }
 
+      public TopItems geShirt() {
+        return shirt;
+      }
+
+      public void setTop(TopItems shirt) {
+        this.shirt = shirt;
+      }
+
+      public Fullbody getFullBody() {
+        return fullBody;
+      }
+
       public String describeOutfit() {
-        return "The outfit for today is " + pants.getName();
+        if (fullBody != null) {
+          return "The outfit for today is a full-body " + fullBody.getName() + ".";
+      } else {
+        return "The outfit for today is a " + top.getName() + " paired with " + pants.getName() + ".";
         // ", perfect for " + weather.getCondition() + ".";
       }
+  }
 }
