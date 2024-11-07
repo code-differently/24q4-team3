@@ -3,7 +3,7 @@ public interface ArticleOfClothing {
     String getColor(); 
     String getStyle(); 
     String getName();
-    String getOccassion();
+    String getOccasion();
     String seasonalPurpose();
 }
 
