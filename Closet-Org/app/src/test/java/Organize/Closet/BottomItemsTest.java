@@ -52,7 +52,7 @@ public class BottomItemsTest {
   public void testGetOccasion() {
     assertEquals(
         "casual",
-        jeans.getOccassion(),
+        jeans.getOccasion(),
         "getOccasion() should return the occasion of the clothing item.");
   }
 
@@ -76,7 +76,7 @@ public class BottomItemsTest {
   public void testDescribeItem() {
     // Expected description format
     String expectedDescription =
-        "Style: Denim shorts, Name: jean, Color: black. Occassion: casual, Seasonal: summer. ";
+        "Style: Denim shorts, Name: jean, Color: black. Occasion: casual, Seasonal: summer. ";
 
     // Assert that describeItem() returns the expected description
     assertEquals(

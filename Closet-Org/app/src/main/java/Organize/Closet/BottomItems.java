@@ -4,7 +4,7 @@ public class BottomItems implements Bottoms {
   private String name;
   private String color;
   private String style;
-  private String occassion;
+  private String occasion;
   private String seasonalPurpose;
 
   private String waistLine;
@@ -15,7 +15,7 @@ public class BottomItems implements Bottoms {
       String name,
       String color,
       String style,
-      String occassion,
+      String occasion,
       String seasonalPurpose,
       String waistLine,
       boolean hasPockets,
@@ -23,7 +23,7 @@ public class BottomItems implements Bottoms {
     this.name = name;
     this.color = color;
     this.style = style;
-    this.occassion = occassion;
+    this.occasion = occasion;
     this.seasonalPurpose = seasonalPurpose;
     this.bottomLength = bottomLength;
     this.waistLine = waistLine;
@@ -46,7 +46,7 @@ public class BottomItems implements Bottoms {
   }
 
   @Override
-  public String getOccassion() {
+  public String getOccasion() {
     return occassion;
   }
 
