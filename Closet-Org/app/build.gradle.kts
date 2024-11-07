@@ -9,6 +9,7 @@ plugins {
     java
     application
     id("com.diffplug.spotless") version "6.21.0"
+    id("com.adarshr.test-logger") version "4.0.0"
 }
 
 repositories {
