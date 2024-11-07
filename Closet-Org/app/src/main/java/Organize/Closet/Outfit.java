@@ -3,67 +3,55 @@ package Organize.Closet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Outfit implements Tops, Bottoms, Accessories, Weather {
-    private String color;
-    private String style;
-    private String name;
-    private String occasion;
-    private String seasonalPurpose;
-    private boolean isInCloset;
+public class Outfit implements Weather {
+    private BottomItems bottomItem;
 
-    private final List<Outfit> clothingItems;
-
-    public Outfit() {
-        this.isInCloset = false;
-        this.clothingItems = new ArrayList<>();
-    }
-
-    public void addClothing(Outfit clothing) {
-        clothingItems.add(clothing);
+    private double temperature; 
+    private String condition;    
+    private int humidity;       
+    private String season;
+    
+    public Outfit(BottomItems bottomItem, double temperature, String condition, int humidity, String season) {
+        this.bottomItem = bottomItem;
+        this.temperature = temperature;
+        this.condition = condition;
+        this.humidity = humidity;
+        this.season = season;
     }
 
     @Override
-    public String getColor() {
-        return color;
+    public double getTemperature() {
+        return temperature;
     }
 
     @Override
-    public String getStyle() {
-        return style;
+    public String getCondition() {
+        return condition;
     }
 
     @Override
-    public String getName() {
-        return name;
+    public int getHumidity() {
+        return humidity;
     }
 
     @Override
-    public String getOccasion() {
-        return occasion;
+    public String getSeason() {
+        return season;
     }
 
-    @Override
-    public String seasonalPurpose() {
-        return seasonalPurpose;
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 
-    public void isInCloset(boolean status) {
-        isInCloset = status;
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 
-    public boolean checkCloset() {
-        return isInCloset;
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
     }
 
-    public String describeOutfit() {
-        StringBuilder description = new StringBuilder();
-        description.append("This outfit is for ").append(occasion)
-                .append(" occasions. It is ").append(color).append(" in color.\n");
-        
-        for (Outfit item : clothingItems) {
-            description.append(item.describeOutfit()).append("\n");
-        }
-        
-        return description.toString();
+    public void setSeason(String season) {
+        this.season = season;
     }
 }
