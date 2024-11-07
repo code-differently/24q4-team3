@@ -1,17 +1,17 @@
 package Organize.Closet;
 
 public class FullbodyItem implements Fullbody{
-    private String name;
-    private String color;
-    private String style;
-    private String occasion;
-    private String seasonalPurpose;
+    private final String name;
+    private final String color;
+    private final String style;
+    private final String occasion;
+    private final String seasonalPurpose;
 
  
     private String material;
     private String sleeveLength;
     private String closureType;
-    private boolean hasPockets;
+    private final boolean hasPockets;
     private boolean isMachineWashable;
 
     public FullbodyItem(
@@ -32,4 +32,54 @@ public class FullbodyItem implements Fullbody{
     this.seasonalPurpose = seasonalPurpose;
     this.hasPockets = hasPockets;
   }
+
+    @Override
+    public String getColor() {
+        return color;
+    }
+
+    @Override
+    public String getStyle() {
+        return style;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getOccasion() {
+       return occasion;
+    }
+
+    @Override
+    public String seasonalPurpose() {
+        return seasonalPurpose;
+    }
+
+    @Override
+    public boolean hasPockets() {
+        return hasPockets;
+    }
+
+    @Override
+    public String getMaterial() {
+        return material;
+    }
+
+    @Override
+    public String getSleeveLength() {
+        return sleeveLength;
+    }
+
+    @Override
+    public String getClosureType() {
+        return closureType;
+    }
+
+    @Override
+    public boolean isMachineWashable() {
+        return isMachineWashable;
+    }
 }
