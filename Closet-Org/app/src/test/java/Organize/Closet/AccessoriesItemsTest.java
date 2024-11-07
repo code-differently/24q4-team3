@@ -31,7 +31,7 @@ public class AccessoriesItemsTest {
 
   @Test
   public void testGetOccasion() {
-    assertEquals("Casual", accessory.getOccassion());
+    assertEquals("Casual", accessory.getOccasion());
   }
 
   @Test
