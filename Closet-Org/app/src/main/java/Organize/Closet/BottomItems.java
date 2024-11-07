@@ -47,7 +47,7 @@ public class BottomItems implements Bottoms {
 
   @Override
   public String getOccasion() {
-    return occassion;
+    return occasion;
   }
 
   @Override
@@ -73,7 +73,7 @@ public class BottomItems implements Bottoms {
   public String describeItem() {
     StringBuilder description = new StringBuilder();
     description.append(String.format("Style: %s, Name: %s, Color: %s. ", style, name, color));
-    description.append(String.format("Occassion: %s, Seasonal: %s. ", occassion, seasonalPurpose));
+    description.append(String.format("Occasion: %s, Seasonal: %s. ", occasion, seasonalPurpose));
     // description.append(String.format("Name: %s. ", name));
 
     return description.toString();
