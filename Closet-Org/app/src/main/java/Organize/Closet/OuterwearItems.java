@@ -40,7 +40,7 @@ public class OuterwearItems implements OuterWear {
   }
 
   @Override
-  public String getOccassion() {
+  public String getOccasion() {
     return occasion;
   }
 
@@ -57,5 +57,17 @@ public class OuterwearItems implements OuterWear {
   @Override
   public boolean isWaterproof() {
     return true;
+  }
+
+  public String describeItem() {
+    StringBuilder description = new StringBuilder();
+    description.append(String.format("Style: %s, Name: %s, Color: %s. ", style, name, color));
+    description.append(
+        String.format("Occasion: %s, Seasonal Purpose: %s. ", occasion, seasonalPurpose));
+    description.append(
+        String.format(
+            "Insulation Level: %s, Waterproof: %s.",
+            insulationLevel, isWaterproof() ? "Yes" : "No"));
+    return description.toString();
   }
 }

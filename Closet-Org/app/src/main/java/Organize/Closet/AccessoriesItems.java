@@ -40,7 +40,7 @@ public class AccessoriesItems implements Accessories {
   }
 
   @Override
-  public String getOccassion() {
+  public String getOccasion() {
     return occasion;
   }
 
@@ -52,5 +52,15 @@ public class AccessoriesItems implements Accessories {
   @Override
   public String getAccessoryType() {
     return accessoryType;
+  }
+
+  public String describeItem() {
+    StringBuilder description = new StringBuilder();
+    description.append(String.format("Style: %s, Name: %s, Color: %s. ", style, name, color));
+    description.append(
+        String.format(
+            "Occasion: %s, Seasonal Purpose: %s, Accessory Type: %s. ",
+            occasion, seasonalPurpose, accessoryType));
+    return description.toString();
   }
 }
