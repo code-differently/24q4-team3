@@ -1,5 +1,5 @@
 package Organize.Closet;
 
-public class Outfit {
+public class Outfit implements Weather {
     
 }
