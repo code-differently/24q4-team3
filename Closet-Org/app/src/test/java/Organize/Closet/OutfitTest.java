@@ -10,10 +10,6 @@ public class OutfitTest {
     @Test 
     public void testDescribeOutfit() {
         //Arrange 
-        Clothing shirt = new topItem("Blue");
-        Clothing pants = new bottomItem("Black");
-        Clothing accesory = new accesory("");
-
         Outfit outfit = new Outfit();
         outfit.addClothing(shirt);
         outfit.addClothing(pants);
