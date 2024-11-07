@@ -23,6 +23,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+     // This dependency is used by the application.
+    implementation("com.googlecode.json-simple:json-simple:1.1.1.jar")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
