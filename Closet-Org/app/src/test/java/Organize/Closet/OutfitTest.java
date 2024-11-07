@@ -10,7 +10,7 @@ public class OutfitTest {
 
     @BeforeEach
     public void setUp() {    
-        jeans = new BottomItems("Jeans", "blue", null, null, null, null, false, null);
+        jeans = new BottomItems("Jeans", "blue", "casual", "none", "autumn", "high-waist", true, "none");
         outfit = new Outfit(jeans);
     }
 
