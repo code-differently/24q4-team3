@@ -9,13 +9,14 @@ public class Outfit {
     public Outfit(BottomItems pants, TopItems shirt) {
         this.pants = pants;
         this.fullBody = null;
+        this.shirt = shirt;
         // this.weather = weather;
     }
 
     public Outfit(Fullbody fullBody) {
       this.fullBody = fullBody;
       this.pants = null;
-      this.top = null;
+      this.shirt = null;
     }
 
     public BottomItems getPants() {
@@ -42,7 +43,7 @@ public class Outfit {
         if (fullBody != null) {
           return "The outfit for today is a full-body " + fullBody.getName() + ".";
       } else {
-        return "The outfit for today is a " + top.getName() + " paired with " + pants.getName() + ".";
+        return "The outfit for today is a " + shirt.getName() + " paired with " + pants.getName() + ".";
         // ", perfect for " + weather.getCondition() + ".";
       }
   }
