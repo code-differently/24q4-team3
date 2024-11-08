@@ -19,8 +19,8 @@ public class WeatherAPIDataTest {
     }
 
     @Test
-    public void testIsRaining() {
-        assertFalse(weatherData.isRaining());
+    public void testGetCondition() {
+        assertFalse(weatherData.getCondition());
     }
 
     @Test

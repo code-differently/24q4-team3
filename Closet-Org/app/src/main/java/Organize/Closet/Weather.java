@@ -2,9 +2,9 @@ package Organize.Closet;
 
 public interface Weather { 
     double getTemperature();
-    boolean isRaining();
+    boolean getCondition();
     int getHumidity();
-    String getSeason();
+    String getSeason(); 
 }
    
 
