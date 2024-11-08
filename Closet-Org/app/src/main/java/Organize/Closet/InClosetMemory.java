@@ -35,9 +35,9 @@ public class InClosetMemory implements Closet {
     }
 
     @Override
-    public List<ArticleOfClothing> getArticleOfClothingBySeason(String season) {
+    public List<ArticleOfClothing> getArticleOfClothingBySeasonalPurpose(String season) {
         return articleOfClothing.stream()
-                            .filter(clothing -> clothing.getSeason().equalsIgnoreCase(season))
+                            .filter(clothing -> clothing.getSeasonalPurpose().equalsIgnoreCase(season))
                             .collect(Collectors.toList());
     }
 

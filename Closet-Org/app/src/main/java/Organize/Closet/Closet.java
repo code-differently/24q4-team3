@@ -7,7 +7,7 @@ public interface Closet {
     boolean removeArticleOfClothing(String clothing);
     boolean updateArticleOfClothing(String clothing, ArticleOfClothing updatedclothing);
     List<ArticleOfClothing> getAllArticleOfClothings();
-    List<ArticleOfClothing> getArticleOfClothingBySeason(String season);
+    List<ArticleOfClothing> getArticleOfClothingBySeasonalPurpose(String season);
     List<ArticleOfClothing> getArticleOfClothingByStyle(String style);
     List<ArticleOfClothing> getArticleOfClothingByColor(String color);
     List<ArticleOfClothing> getArticleOfClothingByName(String name);
