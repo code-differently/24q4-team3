@@ -9,20 +9,30 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class WeatherAPIData implements Weather {
+    private String season;
+    private double temperature;
+    private boolean raining;
+    private int humidity;
+
+    public WeatherAPIData(double temperature, boolean raining, int humidty, String season) {
+        this.temperature = temperature;
+        this.raining = raining;
+        this.humidity = humidty;
+        this.season = season;
+    }
+
+
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         try {
-            WeatherAPIData weatherAPI = new WeatherAPIData();
-            Scanner scanner = new Scanner(System.in);
             String city;
             do {
-                // Retrieve user input
                 System.out.println("===================================================");
                 System.out.print("Enter City (Say No to Quit): ");
                 city = scanner.nextLine();
-
+    
                 if (city.equalsIgnoreCase("No")) break;
-
-                // Get location data
+    
                 JSONObject cityLocationData = getLocationData(city);
                 if (cityLocationData == null) {
                     System.out.println("Location data could not be retrieved.");
@@ -30,12 +40,16 @@ public class WeatherAPIData implements Weather {
                 }
                 double latitude = (double) cityLocationData.get("latitude");
                 double longitude = (double) cityLocationData.get("longitude");
-
-                weatherAPI.displayWeatherData(latitude, longitude);
+    
+                
+                displayWeatherData(latitude, longitude);
             } while (!city.equalsIgnoreCase("No"));
-
+    
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+           
+            scanner.close();
         }
     }
 
@@ -44,23 +58,16 @@ public class WeatherAPIData implements Weather {
         String urlString = "https://geocoding-api.open-meteo.com/v1/search?name=" + city + "&count=1&language=en&format=json";
 
         try {
-            // 1. Fetch the API response based on API Link
             HttpURLConnection apiConnection = fetchApiResponse(urlString);
-
-            // check for response status
             if (apiConnection.getResponseCode() != 200) {
                 System.out.println("Error: Could not connect to API");
                 return null;
             }
 
-            // 2. Read the response
             String jsonResponse = readApiResponse(apiConnection);
-
-            // 3. Parse the string into a JSON Object
             JSONParser parser = new JSONParser();
             JSONObject resultsJsonObj = (JSONObject) parser.parse(jsonResponse);
 
-            // 4. Retrieve Location Data
             JSONArray locationData = (JSONArray) resultsJsonObj.get("results");
             return (JSONObject) locationData.get(0);
 
@@ -70,39 +77,30 @@ public class WeatherAPIData implements Weather {
         return null;
     }
 
-    private void displayWeatherData(double latitude, double longitude) {
+    private static void displayWeatherData(double latitude, double longitude) {
         try {
-            // 1. Fetch the API response based on API Link
             String url = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + 
                     "&hourly=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timeformat=unixtime";
             HttpURLConnection apiConnection = fetchApiResponse(url);
 
-            // check for response status
             if (apiConnection.getResponseCode() != 200) {
                 System.out.println("Error: Could not connect to API");
                 return;
             }
 
-            // 2. Read the response
             String jsonResponse = readApiResponse(apiConnection);
-
-            // 3. Parse the string into a JSON Object
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject) parser.parse(jsonResponse);
-            JSONObject currentWeatherJson = (JSONObject) jsonObject.get("current");
 
-            // 4. Extract and display the data
-            String time = (String) currentWeatherJson.get("time");
-            System.out.println("Current Time: " + time);
+            
+            JSONObject hourlyData = (JSONObject) jsonObject.get("hourly");
 
-            double temperature = (double) currentWeatherJson.get("temperature_2m");
-            System.out.println("Current Temperature (C): " + temperature);
-
-            long relativeHumidity = (long) currentWeatherJson.get("relative_humidity_2m");
-            System.out.println("Relative Humidity: " + relativeHumidity);
-
-            double windSpeed = (double) currentWeatherJson.get("wind_speed_10m");
-            System.out.println("Wind Speed: " + windSpeed);
+            
+            System.out.println("Latitude: " + latitude + ", Longitude: " + longitude);
+            System.out.println("Current Temperature (°C): " + hourlyData.get("temperature_2m"));
+            System.out.println("Humidity (%): " + hourlyData.get("relative_humidity_2m"));
+            System.out.println("Precipitation: " + hourlyData.get("precipitation"));
+            System.out.println("Wind Speed (m/s): " + hourlyData.get("wind_speed_10m"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -112,8 +110,6 @@ public class WeatherAPIData implements Weather {
     private static String readApiResponse(HttpURLConnection apiConnection) {
         try (Scanner scanner = new Scanner(apiConnection.getInputStream())) {
             StringBuilder resultJson = new StringBuilder();
-
-            // Loop through each line in the response and append it to the StringBuilder
             while (scanner.hasNext()) {
                 resultJson.append(scanner.nextLine());
             }
@@ -138,28 +134,23 @@ public class WeatherAPIData implements Weather {
         return null;
     }
 
-    // Implement the Weather interface methods as needed
     @Override
     public double getTemperature() {
-        // Implement temperature retrieval logic
-        return 0;
+        return temperature;
     }
 
     @Override
-    public String getCondition() {
-        // Implement weather condition retrieval logic
-        return "";
+    public boolean isRaining() {
+        return raining;
     }
 
     @Override
     public int getHumidity() {
-        // Implement humidity retrieval logic
-        return 0;
+        return humidity;
     }
 
     @Override
     public String getSeason() {
-        // Implement season retrieval logic
-        return "";
+        return season;
     }
-}
+}  

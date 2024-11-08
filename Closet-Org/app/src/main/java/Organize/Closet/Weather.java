@@ -1,9 +1,13 @@
 package Organize.Closet;
 
-public interface Weather {
-    void displayWeatherData(double latitude, double longitude);
+public interface Weather { 
     double getTemperature();
-    String getCondition();
+    boolean isRaining();
     int getHumidity();
     String getSeason();
 }
+   
+
+
+
+    
