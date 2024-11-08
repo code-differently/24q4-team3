@@ -5,5 +5,9 @@ public interface ArticleOfClothing {
     String getName();
     String getOccasion();
     String seasonalPurpose();
+    static Object stream() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'stream'");
+    }
 }
 

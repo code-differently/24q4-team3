@@ -1,5 +1,7 @@
 package Organize.Closet;
 
+import java.util.List;
+
 public interface Closet {
     void addArticleOfClothing(String clothingId);
     boolean removeArticleOfClothing(String clothingId);
