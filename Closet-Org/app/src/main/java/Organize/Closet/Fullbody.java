@@ -5,5 +5,6 @@ public interface Fullbody {
     String getMaterial();
     String getSleeveLength();
     String getClosureType();
-    boolean isMachineWashable();    
+    boolean isMachineWashable();
+    String getName();    
 }
