@@ -25,6 +25,12 @@ dependencies {
     implementation(libs.guava)
 
     implementation("com.googlecode.json-simple:json-simple:1.1.1")
+
+    testImplementation 'org.mockito:mockito-core:5.0.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0' // If you're using JUnit 5
+    
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'  // JUnit 5 engine
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
