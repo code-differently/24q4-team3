@@ -1,14 +1,15 @@
 package Organize.Closet;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 
+import org.json.simple.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 public class WeatherAPIDataMockTest {
 
@@ -45,7 +46,7 @@ public class WeatherAPIDataMockTest {
         when(mockConnection.getInputStream()).thenReturn(inputStream);
         
         // Simulate displayWeatherData by setting latitude and longitude
-        weatherAPI.displayWeatherData(40.7128, -74.0060);
+        WeatherAPIData.displayWeatherData(40.7128, -74.0060);
 
         // Verify that expected data is retrieved
         assertEquals(75.0, weatherAPI.getTemperature());

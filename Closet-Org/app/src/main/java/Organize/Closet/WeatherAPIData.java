@@ -53,7 +53,7 @@ public class WeatherAPIData implements Weather {
         }
     }
 
-    private static JSONObject getLocationData(String city) {
+    static JSONObject getLocationData(String city) {
         city = city.replaceAll(" ", "+");
         String urlString = "https://geocoding-api.open-meteo.com/v1/search?name=" + city + "&count=1&language=en&format=json";
 
@@ -77,7 +77,7 @@ public class WeatherAPIData implements Weather {
         return null;
     }
 
-    private static void displayWeatherData(double latitude, double longitude) {
+    static void displayWeatherData(double latitude, double longitude) {
         try {
             String url = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + 
                     "&hourly=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timeformat=unixtime";
