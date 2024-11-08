@@ -49,4 +49,17 @@ class OuterwearItemsTest {
     // Act & Assert
     assertTrue(jacket.isWaterproof(), "The jacket should be waterproof.");
   }
+
+  @Test
+  void testGetInsulationLevel() {
+    // Arrange
+    OuterwearItems jacket =
+        new OuterwearItems("Black", "Jacket", "Insulated Jacket", "Outdoor", "Winter", "High");
+
+    // Act
+    String insulationLevel = jacket.getInsulationLevel();
+
+    // Assert
+    assertEquals("High", insulationLevel, "The insulation level should be 'High'.");
+  }
 }
