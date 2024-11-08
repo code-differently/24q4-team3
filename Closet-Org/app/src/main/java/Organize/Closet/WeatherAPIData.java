@@ -11,10 +11,10 @@ import java.util.Scanner;
 public class WeatherAPIData implements Weather {
     private String season;
     private double temperature;
-    private boolean condition;
+    private String condition;
     private int humidity;
 
-    public WeatherAPIData(double temperature, boolean condition, int humidty, String season) {
+    public WeatherAPIData(double temperature, String condition, int humidty, String season) {
         this.temperature = temperature;
         this.condition = condition;
         this.humidity = humidty;
@@ -140,7 +140,7 @@ public class WeatherAPIData implements Weather {
     }
 
     @Override
-    public boolean getCondition() {
+    public String getCondition() {
         return condition;
     }
 
