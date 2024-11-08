@@ -10,7 +10,7 @@ public class WeatherAPIDataTest {
 
     @BeforeEach
     public void setUp() {
-        weatherData = new WeatherAPIData(72.0, false, 60, "spring");
+        weatherData = new WeatherAPIData(72.0, "sunny", 60, "spring");
     }
 
     @Test
@@ -20,7 +20,7 @@ public class WeatherAPIDataTest {
 
     @Test
     public void testGetCondition() {
-        assertFalse(weatherData.getCondition());
+        assertEquals("sunny", weatherData.getCondition());
     }
 
     @Test

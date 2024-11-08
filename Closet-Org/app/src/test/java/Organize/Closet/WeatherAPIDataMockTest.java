@@ -17,7 +17,7 @@ public class WeatherAPIDataMockTest {
 
     @BeforeEach
     public void setUp() {
-        weatherAPI = new WeatherAPIData(70.0, false, 60, "summer");
+        weatherAPI = new WeatherAPIData(70.0, "sunny", 60, "summer");
     }
 
     @Test

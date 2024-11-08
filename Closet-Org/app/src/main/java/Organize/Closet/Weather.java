@@ -3,7 +3,7 @@ package Organize.Closet;
 <<<<<<< HEAD
 public interface Weather { 
     double getTemperature();
-    boolean getCondition();
+    String getCondition();
     int getHumidity();
     String getSeason(); 
 =======
