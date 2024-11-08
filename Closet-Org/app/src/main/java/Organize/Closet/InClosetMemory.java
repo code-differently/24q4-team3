@@ -2,31 +2,32 @@ package Organize.Closet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.stream.Collectors;
 
 public class InClosetMemory implements Closet {
     private List<ArticleOfClothing> articleOfClothing = new ArrayList<>();
-
-    @Override
-    public void addArticleOfClothing(ArticleOfClothing clothing) {
-        ArticleOfClothing.add(clothing);
-    }
+        private Object clothingName;
     
-    @Override
-    public boolean removeArticleOfClothing(String clothingId) {
-        return articleOfClothing.removeIf(clothing -> clothing.getId().equals(clothingId));
+        
+        @Override
+        public boolean removeArticleOfClothing(String clothing) {
+            return articleOfClothing.removeIf(item -> item.getName().equals(clothingName));
     }
 
     @Override
-    public boolean updateArticleOfClothing(String clothingId, ArticleOfClothing updatedClothing) {
-        for (int i = 0; i < articleOfClothing.contains(i); i++) {
-            if (articleOfClothing.get(i).equals(clothingId)) {
-                articleOfClothing.set(i, updatedClothing);
+    public boolean updateArticleOfClothing(String clothingName, ArticleOfClothing updatedClothing) {
+        ListIterator<ArticleOfClothing> iterator = articleOfClothing.listIterator();
+
+        while (iterator.hasNext()) {
+            ArticleOfClothing item = iterator.next();
+            if (item.getName().equals(clothingName)) {
+                iterator.set(updatedClothing);
                 return true;
             }
         }
-       return false; 
-    }
+                return false;
+}
 
     @Override
     public List<ArticleOfClothing> getAllArticleOfClothings() {
@@ -35,52 +36,56 @@ public class InClosetMemory implements Closet {
 
     @Override
     public List<ArticleOfClothing> getArticleOfClothingBySeason(String season) {
-        return ArticleOfClothing.stream()
+        return articleOfClothing.stream()
                             .filter(clothing -> clothing.getSeason().equalsIgnoreCase(season))
                             .collect(Collectors.toList());
     }
 
     @Override
-    public List<ArticleOfClothing> getArticleOfClothingByDesign(String type) {
-        return ArticleOfClothing.stream()
-                            .filter(clothing -> clothing.getType().equalsIgnoreCase(type))
+    public List<ArticleOfClothing> getArticleOfClothingByStyle(String style) {
+        return articleOfClothing.stream()
+                            .filter(clothing -> clothing.getStyle().equalsIgnoreCase(style))
                             .collect(Collectors.toList());
     }
 
     @Override
     public List<ArticleOfClothing> getArticleOfClothingByColor(String color) {
-        return ArticleOfClothing.stream()
-                            .filter(item -> item.getColor().equalsIgnoreCase(color))
+        return articleOfClothing.stream()
+                            .filter(clothing -> clothing.getColor().equalsIgnoreCase(color))
+                            .collect(Collectors.toList());
+    }
+ 
+    @Override
+    public List<ArticleOfClothing> getArticleOfClothingByOccasion(String occasion) {
+        return articleOfClothing.stream()
+                            .filter(clothing -> clothing.getOccasion().equalsIgnoreCase(occasion))
                             .collect(Collectors.toList());
     }
 
     @Override
-    public void addArticleOfClothing(String clothingId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addArticleOfClothing'");
-    }
-
-    @Override
-    public Organize.Closet.List<ArticleOfClothing> getArticleOfClothingByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArticleOfClothingByName'");
-    }
-
-    @Override
-    public Organize.Closet.List<ArticleOfClothing> getArticleOfClothingByOccasion(String occasion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArticleOfClothingByOccasion'");
-    }
-
-    @Override
     public List<ArticleOfClothing> getArticleOfClothingByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArticleOfClothingByName'");
+        return articleOfClothing.stream()
+                            .filter(clothing -> clothing.getName().equalsIgnoreCase(name))
+                            .collect(Collectors.toList());
+    }
+
+    public List<ArticleOfClothing> getArticleOfClothing() {
+        return articleOfClothing;
+    }
+
+    public void setArticleOfClothing(List<ArticleOfClothing> articleOfClothing) {
+        this.articleOfClothing = articleOfClothing;
     }
 
     @Override
-    public List<ArticleOfClothing> getArticleOfClothingByOccasion(String occasion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArticleOfClothingByOccasion'");
+    public void addArticleOfClothing(ArticleOfClothing clothing) {
+        if (clothing != null) {
+            articleOfClothing.add(clothing);
+        } else {
+            throw new IllegalArgumentException("Cannot add a null article of clothing");
+        }
+        
     }
+
+
 }

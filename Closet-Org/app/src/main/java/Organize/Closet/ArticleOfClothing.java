@@ -4,7 +4,7 @@ public interface ArticleOfClothing {
     String getStyle(); 
     String getName();
     String getOccasion();
-    String seasonalPurpose();
+    String getSeason();
     static Object stream() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'stream'");
