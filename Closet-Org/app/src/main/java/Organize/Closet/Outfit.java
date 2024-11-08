@@ -8,13 +8,11 @@ public class Outfit {
     private Fullbody fullBody;
     private AccessoriesItems accessories;
     private OuterwearItems outerwear;
-    // private Weather weather;  
 
     public Outfit(BottomItems pants, TopItems shirt) {
         this.pants = pants;
         this.fullBody = null;
         this.shirt = shirt;
-        // this.weather = weather;
     }
 
     public Outfit(Fullbody fullBody) {
