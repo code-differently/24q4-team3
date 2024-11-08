@@ -45,6 +45,14 @@ public class Outfit {
         this.fullBody = fullBody;
     }
 
+    public AccessoriesItems setAccessories(AccessoriesItems hat) {
+      return hat;
+    }
+
+    public OuterwearItems setOuterwear(OuterwearItems jacket) {
+      return jacket;
+    }
+
     public void checkTemperature(double temperature) throws TemperatureException {
         if (temperature < 60) {
             throw new TemperatureException(temperature); 

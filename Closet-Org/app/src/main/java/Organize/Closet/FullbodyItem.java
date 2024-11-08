@@ -42,6 +42,7 @@ public class FullbodyItem implements Fullbody {
     }
 
 
+    @Override
     public String getName() {
         return name;
     }
