@@ -1,10 +1,10 @@
 package Organize.Closet;
 
-public interface Weather { 
+public interface Weather {
     double getTemperature();
     String getCondition();
     int getHumidity();
-    String getSeason(); 
+    String getSeason();
 }
    
 
