@@ -3,7 +3,7 @@ package Organize.Closet;
 import java.util.List;
 
 public interface Closet {
-    void addArticleOfClothing(ArticleOfClothing clothing);
+    FullbodyItem addArticleOfClothing(FullbodyItem clothing);
     boolean removeArticleOfClothing(String clothing);
     boolean updateArticleOfClothing(String clothing, ArticleOfClothing updatedclothing);
     List<ArticleOfClothing> getAllArticleOfClothings();
@@ -12,4 +12,8 @@ public interface Closet {
     List<ArticleOfClothing> getArticleOfClothingByColor(String color);
     List<ArticleOfClothing> getArticleOfClothingByName(String name);
     List<ArticleOfClothing> getArticleOfClothingByOccasion(String occasion);
+    TopItems addArticleOfClothing(TopItems topItems);
+    OuterwearItems addArticleOfClothing(OuterwearItems outerwearItems);
+    AccessoriesItems addArticleOfClothing(AccessoriesItems accessoriesItems);
+    BottomItems addArticleOfClothing(BottomItems bottomItems);
 }

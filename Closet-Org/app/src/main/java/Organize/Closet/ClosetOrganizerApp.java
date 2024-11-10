@@ -7,14 +7,14 @@ public class ClosetOrganizerApp {
     public static void main(String[] args) {
        
         Closet closet = new InClosetMemory();
-        Weather weather = new WeatherAPIData(); 
+        Weather weather = new WeatherAPIData(0, null, 0, null); 
         
        
-        closet.addArticleOfClothing(new Tops("Shirt", "Blue", "Summer", "Polo", "Everyday Casual"));
-        closet.addArticleOfClothing(new Outerwear("Rain Jacket", "Black", "Spring", "Poncho", "Outdoor"));
-        closet.addArticleOfClothing(new Accessories("Sunglasses", "Black", "Summer", "Plastic Frame", "Outdoor"));
-        closet.addArticleOfClothing(new Bottoms("Jeans", "Blue", "Summer", "Capri", "Everyday Casual"));
-        closet.addArticleOfClothing(new FullBody("Romper", "White", "Summer", "Sleeveless", "Everyday Casual"));
+        closet.addArticleOfClothing(new TopItems("Shirt", "Blue", "Polo", "Everyday Casual", "Summer", false, null, null, null, false));
+        closet.addArticleOfClothing(new OuterwearItems("Black", "Poncho", "Rain-Jacket", "Outdoor", "Rainy Weather", null));
+        closet.addArticleOfClothing(new AccessoriesItems("Pink", "Plastic Frame", "Sunglasses", "Outdoor", "Summer", null));
+        closet.addArticleOfClothing(new BottomItems("Jeans", "Blue", "Capri", "Everyday Casual", "Summer", null, false, null));
+        closet.addArticleOfClothing(new FullbodyItem("Romper", "White", "Sleeveless", "Everyday Casual", "Summer", null, null, null, false, false));
         
        
         OutfitSuggester outfitSuggester = new OutfitSuggester(closet, weather);

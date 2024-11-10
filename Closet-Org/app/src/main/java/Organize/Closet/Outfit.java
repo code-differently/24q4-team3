@@ -5,7 +5,7 @@ import Organize.Closet.exceptions.TemperatureException;
 public class Outfit {
     private BottomItems pants;
     private TopItems shirt;
-    private Fullbody fullBody;
+    private FullbodyItem fullBody;
     private AccessoriesItems accessories;
     private OuterwearItems outerwear;
 
@@ -15,7 +15,7 @@ public class Outfit {
         this.shirt = shirt;
     }
 
-    public Outfit(Fullbody fullBody) {
+    public Outfit(FullbodyItem fullBody) {
       this.fullBody = fullBody;
       this.pants = null;
       this.shirt = null;
@@ -37,11 +37,11 @@ public class Outfit {
         this.shirt = shirt;
       }
 
-      public Fullbody getFullBody() {
+      public FullbodyItem getFullBody() {
         return fullBody;
       }
 
-      public void setFullBody(Fullbody fullBody) {
+      public void setFullBody(FullbodyItem fullBody) {
         this.fullBody = fullBody;
     }
 
@@ -80,6 +80,7 @@ public class Outfit {
 
         return description.toString();
     }
+
 
   }
 

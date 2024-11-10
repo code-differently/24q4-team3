@@ -45,7 +45,7 @@ public class AccessoriesItems implements Accessories {
   }
 
   @Override
-  public String seasonalPurpose() {
+  public String getSeasonalPurpose() {
     return seasonalPurpose;
   }
 
@@ -63,4 +63,8 @@ public class AccessoriesItems implements Accessories {
             occasion, seasonalPurpose, accessoryType));
     return description.toString();
   }
+
+ 
+
+  
 }

@@ -30,15 +30,35 @@ public class OutfitSuggester {
     
     private boolean isSuitableForWeather(ArticleOfClothing item, String season, double temperature) {
         String condition;
-                switch (condition.toLowerCase()) {
-            case "rainy":
-                return !(item instanceof Accessories && item.getName().equalsIgnoreCase("Sunglasses"));
-            case "snowy":
-                return item instanceof Outerwear || item instanceof Fullbody || item.getStyle().equalsIgnoreCase("Warm");
-            case "sunny":
-                return !(item.getStyle().equalsIgnoreCase("Heavy") || item.getStyle().equalsIgnoreCase("Warm"));
-            default:
-                return true;
-        }
+    switch (season.toLowerCase()) {
+        case "winter":
+            condition = "snowy";
+            break;
+        case "summer":
+            condition = "sunny";
+            break;
+        case "spring":
+        case "fall":
+            condition = "rainy";  
+            break;
+        default:
+            condition = "clear";  
+    }
+
+    if (temperature < 0) {
+        condition = "snowy";
+    } else if (temperature > 30) {
+        condition = "sunny";
+    }
+    switch (condition.toLowerCase()) {
+        case "rainy":
+            return !(item instanceof AccessoriesItems && item.getName().equalsIgnoreCase("Sunglasses"));
+        case "snowy":
+            return item instanceof OuterwearItems || item instanceof FullbodyItem || item.getStyle().equalsIgnoreCase("Warm");
+        case "sunny":
+            return !(item.getStyle().equalsIgnoreCase("Heavy") || item.getStyle().equalsIgnoreCase("Warm"));
+        default:
+            return true;
+    }
     }
 }

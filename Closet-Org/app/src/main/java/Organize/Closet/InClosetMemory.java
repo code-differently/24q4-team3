@@ -77,7 +77,7 @@ public class InClosetMemory implements Closet {
         this.articleOfClothing = articleOfClothing;
     }
 
-    @Override
+    /*@Override
     public void addArticleOfClothing(ArticleOfClothing clothing) {
         if (clothing != null) {
             articleOfClothing.add(clothing);
@@ -85,6 +85,31 @@ public class InClosetMemory implements Closet {
             throw new IllegalArgumentException("Cannot add a null article of clothing");
         }
         
+    }*/
+
+    @Override
+    public FullbodyItem addArticleOfClothing(FullbodyItem fullbody) {
+        return fullbody;
+    }
+
+    @Override
+    public TopItems addArticleOfClothing(TopItems topItems) {
+        return topItems;
+    }
+
+    @Override
+    public OuterwearItems addArticleOfClothing(OuterwearItems outerwearItems) {
+        return outerwearItems;
+    }
+
+    @Override
+    public AccessoriesItems addArticleOfClothing(AccessoriesItems accessoriesItems) {
+        return accessoriesItems;
+    }
+
+    @Override
+    public BottomItems addArticleOfClothing(BottomItems bottomItems) {
+        return bottomItems;
     }
 
 

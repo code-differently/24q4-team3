@@ -51,7 +51,7 @@ public class TopItems implements Tops {
   }
 
   @Override
-  public String seasonalPurpose() {
+  public String getSeasonalPurpose() {
     return seasonalPurpose;
   }
 
