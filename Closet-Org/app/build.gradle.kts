@@ -20,6 +20,10 @@ dependencies {
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation(libs.guava)
+
+    implementation("com.googlecode.json-simple:json-simple:1.1.1")
+
+    testImplementation("org.mockito:mockito-core:2.1.0")
 }
 
 java {
