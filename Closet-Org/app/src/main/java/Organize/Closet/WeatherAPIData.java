@@ -8,6 +8,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+// Code mostly modified from a API tutorial by TapTap
+// https://www.youtube.com/watch?v=WS_H44tvZMI
 public class WeatherAPIData implements Weather {
   private String season;
   private double temperature;
