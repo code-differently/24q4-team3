@@ -36,7 +36,7 @@ public class AccessoriesItemsTest {
 
   @Test
   public void testGetSeasonalPurpose() {
-    assertEquals("Winter", accessory.seasonalPurpose());
+    assertEquals("Winter", accessory.getSeasonalPurpose());
   }
 
   @Test

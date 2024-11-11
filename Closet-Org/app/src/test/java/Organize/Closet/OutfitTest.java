@@ -70,12 +70,12 @@ public class OutfitTest {
     }
 
     @Test
-    public void testGetSetFullBody() {
+    public void testGetSetFullBodyItem() {
         Fullbody fullBody = new FullbodyItem("Jumpsuit", null, null, null, null, null, null, null, false, false);
         Outfit myOutfit = new Outfit(fullBody);
 
         Fullbody newFullBody = new FullbodyItem("Overalls", null, null, null, null, null, null, null, false, false);
-        myOutfit.setFullBody(newFullBody);
+        myOutfit.setFullBody((FullbodyItem) newFullBody);
 
         assertEquals("Overalls", myOutfit.getFullBody().getName());
     }

@@ -18,7 +18,7 @@ class OuterwearItemsTest {
     assertEquals("Jacket", jacket.getStyle());
     assertEquals("Winter Jacket", jacket.getName());
     assertEquals("Casual", jacket.getOccasion());
-    assertEquals("Winter", jacket.seasonalPurpose());
+    assertEquals("Winter", jacket.getSeasonalPurpose());
     assertEquals("High", jacket.getInsulationLevel());
     assertTrue(jacket.isWaterproof());
   }

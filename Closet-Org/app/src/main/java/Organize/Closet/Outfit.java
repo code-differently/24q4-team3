@@ -21,6 +21,10 @@ public class Outfit {
       this.shirt = null;
     }
 
+    public Outfit(Fullbody fullBody2) {
+      //TODO Auto-generated constructor stub
+    }
+
     public BottomItems getPants() {
         return pants;
       }
@@ -41,8 +45,8 @@ public class Outfit {
         return fullBody;
       }
 
-      public void setFullBody(FullbodyItem fullBody) {
-        this.fullBody = fullBody;
+      public void setFullBody(FullbodyItem newFullBody) {
+        this.fullBody = newFullBody;
     }
 
     public AccessoriesItems setAccessories(AccessoriesItems hat) {

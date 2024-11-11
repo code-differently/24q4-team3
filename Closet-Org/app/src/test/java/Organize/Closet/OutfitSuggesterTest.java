@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.util.List;
-import java.util.ArrayList;
 
 class OutfitSuggesterTest {
 
@@ -87,7 +86,7 @@ class OutfitSuggesterTest {
         ArticleOfClothing clothing = mock(ArticleOfClothing.class);
         when(clothing.getName()).thenReturn(name);
         when(clothing.getColor()).thenReturn(color);
-        when(clothing.getSeasonanlPurpose()).thenReturn(season);
+        when(clothing.getSeasonalPurpose()).thenReturn(season);
         when(clothing.getStyle()).thenReturn(style);
         when(clothing.getOccasion()).thenReturn(occasion);
         return clothing;

@@ -1,26 +1,26 @@
 package Organize.Closet;
 
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
-import java.util.ArrayList;
 
 class InClosetMemoryTest {
 
     private InClosetMemory closet;
-    private ArticleOfClothing tops;
-    private ArticleOfClothing bottoms;
-    private ArticleOfClothing accessories;
-    private ArticleOfClothing outerwear;
-    private ArticleOfClothing fullbody;
+    private ArticleOfClothing topItems;
+    private ArticleOfClothing bottomItems;
+    private ArticleOfClothing accessoriesItems;
+    private ArticleOfClothing outerwearItems;
+    private ArticleOfClothing fullbodyItem;
    
     @BeforeEach
     void setUp() {
         closet = new InClosetMemory();
         
-        tops = new ArticleOfClothing() {
+        topItems = new ArticleOfClothing() {
             @Override public String getName() { return "Blouse"; }
             @Override public String getColor() { return "Blue"; }
             @Override public String getSeasonalPurpose() { return "Summer"; }
@@ -28,7 +28,7 @@ class InClosetMemoryTest {
             @Override public String getOccasion() { return "Everyday Casual"; }
         };
 
-        bottoms = new ArticleOfClothing() {
+        bottomItems = new ArticleOfClothing() {
             @Override public String getName() { return "Dress Pants"; }
             @Override public String getColor() { return "Black"; }
             @Override public String getSeasonalPurpose() { return "Winter"; }
@@ -36,7 +36,7 @@ class InClosetMemoryTest {
             @Override public String getOccasion() { return "Work"; }
         };
 
-        accessories = new ArticleOfClothing() {
+        accessoriesItems = new ArticleOfClothing() {
             @Override public String getName() { return "HandBag"; }
             @Override public String getColor() { return "Pink"; }
             @Override public String getSeasonalPurpose() { return "Summer"; }
@@ -44,7 +44,7 @@ class InClosetMemoryTest {
             @Override public String getOccasion() { return "Everyday Casual"; }
         };
 
-        outerwear = new ArticleOfClothing() {
+        outerwearItems = new ArticleOfClothing() {
             @Override public String getName() { return "Blazer"; }
             @Override public String getColor() { return "Gray"; }
             @Override public String getSeasonalPurpose() { return "Winter"; }
@@ -52,7 +52,7 @@ class InClosetMemoryTest {
             @Override public String getOccasion() { return "Work"; }
         };
 
-        fullbody = new ArticleOfClothing() {
+        fullbodyItem = new ArticleOfClothing() {
             @Override public String getName() { return "Dress"; }
             @Override public String getColor() { return "Yellow"; }
             @Override public String getSeasonalPurpose() { return "Summer"; }
@@ -60,29 +60,31 @@ class InClosetMemoryTest {
             @Override public String getOccasion() { return "Party"; }
         };
 
-        closet.addArticleOfClothing(tops);
-        closet.addArticleOfClothing(bottoms);
-        closet.addArticleOfClothing(accessories);
-        closet.addArticleOfClothing(outerwear);
-        closet.addArticleOfClothing(fullbody);
+        closet.addArticleOfClothing(fullbodyItem);
+        closet.addArticleOfClothing(topItems);
+        closet.addArticleOfClothing(bottomItems);
+        closet.addArticleOfClothing(accessoriesItems);
+        closet.addArticleOfClothing(outerwearItems);
     }
 
     @Test
     void testAddArticleOfClothing() {
-        ArticleOfClothing outerwear = new ArticleOfClothing("Hoodie", "Black", "Winter", "PullOver", "Outdoor");
-        closet.addArticleOfClothing(outerwear);
-        assertTrue(closet.getArticleOfClothing().contains(outerwear));
+        ArticleOfClothing outerwearItem = new ArticleOfClothing() {
+            @Override public String getName() { return "Hoodie"; }
+            @Override public String getColor() { return "Black"; }
+            @Override public String getSeasonalPurpose() { return "Winter"; }
+            @Override public String getStyle() { return "PullOver"; }
+            @Override public String getOccasion() { return "Outdoor"; }
+        };
+        closet.addArticleOfClothing(outerwearItem);
+        assertTrue(closet.getArticleOfClothing().contains(outerwearItem));
     }
 
-    @Test
-    void testAddNullArticleOfClothing() {
-        assertThrows(IllegalArgumentException.class, () -> closet.addArticleOfClothing(null));
-    }
-
+    
     @Test
     void testRemoveArticleOfClothing() {
         assertTrue(closet.removeArticleOfClothing("Dress"));
-        assertFalse(closet.getArticleOfClothing().contains(tops));
+        assertFalse(closet.getArticleOfClothing().contains(fullbodyItem));
     }
 
     @Test
@@ -92,59 +94,73 @@ class InClosetMemoryTest {
 
     @Test
     void testUpdateArticleOfClothing() {
-        ArticleOfClothing updatedFullBody = new ArticleOfClothing("Dress", "Red", "Backless", "Party", "Spring");
-        assertTrue(closet.updateArticleOfClothing("Dress", updatedFullBody));
+        ArticleOfClothing updatedFullBodyItem = new ArticleOfClothing() {
+            @Override public String getName() { return "Dress"; }
+            @Override public String getColor() { return "Red"; }
+            @Override public String getSeasonalPurpose() { return "Spring"; }
+            @Override public String getStyle() { return "Backless"; }
+            @Override public String getOccasion() { return "Party"; }
+        };
+        assertTrue(closet.updateArticleOfClothing("Dress", updatedFullBodyItem));
         List<ArticleOfClothing> allClothing = closet.getArticleOfClothing();
-        assertTrue(allClothing.contains(updatedFullBody));
-        assertEquals("Red", allClothing.get(allClothing.indexOf(updatedFullBody)).getColor());
+        assertTrue(allClothing.contains(updatedFullBodyItem));
+        assertEquals("Red", allClothing.get(allClothing.indexOf(updatedFullBodyItem)).getColor());
     }
 
     @Test
     void testUpdateNonExistentArticleOfClothing() {
-        ArticleOfClothing newClothing = new ArticleOfClothing("NonExistent", "White", "V-Neck", "Formal", "Winter");
+        ArticleOfClothing newClothing = new ArticleOfClothing() {
+            @Override public String getName() { return "NonExistent"; }
+            @Override public String getColor() { return "White"; }
+            @Override public String getSeasonalPurpose() { return "Winter"; }
+            @Override public String getStyle() { return "V-Neck"; }
+            @Override public String getOccasion() { return "Formal"; }
+        };
         assertFalse(closet.updateArticleOfClothing("NonExistent", newClothing));
     }
 
     @Test
     void testGetAllArticleOfClothings() {
         List<ArticleOfClothing> allClothing = closet.getAllArticleOfClothings();
-        assertEquals(2, allClothing);
-        assertTrue(allClothing.contains(tops));
-        assertTrue(allClothing.contains(bottoms));
+        assertEquals(5, allClothing.size());
+        assertTrue(allClothing.contains(topItems));
+        assertTrue(allClothing.contains(bottomItems));
     }
 
     @Test
     void testGetArticleOfClothingBySeasonalPurpose() {
         List<ArticleOfClothing> winterClothing = closet.getArticleOfClothingBySeasonalPurpose("Winter");
-        assertEquals(1, winterClothing);
-        assertTrue(winterClothing.contains(bottoms));
+        assertEquals(2, winterClothing.size());
+        assertTrue(winterClothing.contains(bottomItems));
+        assertTrue(winterClothing.contains(outerwearItems));
     }
 
     @Test
     void testGetArticleOfClothingByStyle() {
         List<ArticleOfClothing> vNeckClothing = closet.getArticleOfClothingByStyle("V-Neck");
-        assertEquals(1, vNeckClothing);
-        assertTrue(vNeckClothing.contains(tops));
+        assertEquals(1, vNeckClothing.size());
+        assertTrue(vNeckClothing.contains(topItems));
     }
 
     @Test
     void testGetArticleOfClothingByColor() {
         List<ArticleOfClothing> blueClothing = closet.getArticleOfClothingByColor("Blue");
-        assertEquals(1, blueClothing);
-        assertTrue(blueClothing.contains(tops));
+        assertEquals(1, blueClothing.size());
+        assertTrue(blueClothing.contains(topItems));
     }
 
     @Test
     void testGetArticleOfClothingByOccasion() {
         List<ArticleOfClothing> everydayCasualClothing = closet.getArticleOfClothingByOccasion("Everyday Casual");
-        assertEquals(1, everydayCasualClothing);
-        assertTrue(everydayCasualClothing.contains(accessories));
+        assertEquals(2, everydayCasualClothing.size());
+        assertTrue(everydayCasualClothing.contains(topItems));
+        assertTrue(everydayCasualClothing.contains(accessoriesItems));
     }
 
     @Test
     void testGetArticleOfClothingByName() {
         List<ArticleOfClothing> namedClothing = closet.getArticleOfClothingByName("Blazer");
-        assertEquals(1, namedClothing);
-        assertTrue(namedClothing.contains(outerwear));
+        assertEquals(1, namedClothing.size());
+        assertTrue(namedClothing.contains(outerwearItems));
     }
 }

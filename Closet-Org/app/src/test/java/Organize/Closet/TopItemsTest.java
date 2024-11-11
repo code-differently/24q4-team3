@@ -29,7 +29,7 @@ public class TopItemsTest {
   public void testSeasonalPurpose() {
     assertEquals(
         "Fall",
-        shirt.seasonalPurpose(),
+        shirt.getSeasonalPurpose(),
         "getSeasonalPurpose should return the Season of the clothing item.");
   }
 

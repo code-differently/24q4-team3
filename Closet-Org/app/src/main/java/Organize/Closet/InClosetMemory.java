@@ -87,10 +87,6 @@ public class InClosetMemory implements Closet {
         
     }*/
 
-    @Override
-    public FullbodyItem addArticleOfClothing(FullbodyItem fullbody) {
-        return fullbody;
-    }
 
     @Override
     public TopItems addArticleOfClothing(TopItems topItems) {
@@ -110,6 +106,16 @@ public class InClosetMemory implements Closet {
     @Override
     public BottomItems addArticleOfClothing(BottomItems bottomItems) {
         return bottomItems;
+    }
+
+    @Override
+    public FullbodyItem addArticleOfClothing(FullbodyItem fullbodyItem) {
+        return fullbodyItem;
+    }
+
+    public void addArticleOfClothing(ArticleOfClothing fullbodyItem) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addArticleOfClothing'");
     }
 
 
