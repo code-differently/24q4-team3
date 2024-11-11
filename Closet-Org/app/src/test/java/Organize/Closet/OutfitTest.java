@@ -31,9 +31,9 @@ public class OutfitTest {
   @Test
   public void testOutfitDescriptionWithAccessoriesAndOuterwear() {
 
-    BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
+    BottomItems pants = new BottomItems("Jeans", "black", null, null, null, null, true, null);
     TopItems shirt =
-        new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
+        new TopItems("T-Shirt", "red", null, null, null, false, null, null, null, false);
     AccessoriesItems hat =
         new AccessoriesItems("Cap", "Casual", "Baseball Cap", "Casual", "Spring", "Headwear");
     OuterwearItems jacket =
