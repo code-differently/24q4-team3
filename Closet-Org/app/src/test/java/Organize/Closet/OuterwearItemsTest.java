@@ -2,7 +2,6 @@ package Organize.Closet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 class OuterwearItemsTest {
@@ -18,7 +17,7 @@ class OuterwearItemsTest {
     assertEquals("Jacket", jacket.getStyle());
     assertEquals("Winter Jacket", jacket.getName());
     assertEquals("Casual", jacket.getOccasion());
-    assertEquals("Winter", jacket.seasonalPurpose());
+    assertEquals("Winter", jacket.getSeasonanlPurpose());
     assertEquals("High", jacket.getInsulationLevel());
     assertTrue(jacket.isWaterproof());
   }

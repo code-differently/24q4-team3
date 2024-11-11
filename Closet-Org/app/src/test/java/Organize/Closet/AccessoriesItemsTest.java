@@ -1,7 +1,6 @@
 package Organize.Closet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +35,7 @@ public class AccessoriesItemsTest {
 
   @Test
   public void testGetSeasonalPurpose() {
-    assertEquals("Winter", accessory.seasonalPurpose());
+    assertEquals("Winter", accessory.getSeasonanlPurpose());
   }
 
   @Test

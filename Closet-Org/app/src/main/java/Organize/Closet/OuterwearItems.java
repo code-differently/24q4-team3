@@ -45,7 +45,7 @@ public class OuterwearItems implements OuterWear {
   }
 
   @Override
-  public String seasonalPurpose() {
+  public String getSeasonanlPurpose() {
     return seasonalPurpose;
   }
 
@@ -70,4 +70,7 @@ public class OuterwearItems implements OuterWear {
             insulationLevel, isWaterproof() ? "Yes" : "No"));
     return description.toString();
   }
+
+ 
+
 }
