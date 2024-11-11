@@ -4,95 +4,102 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
-import org.junit.jupiter.api.Test;
 
 import Organize.Closet.exceptions.TemperatureException;
+import org.junit.jupiter.api.Test;
 
 public class OutfitTest {
 
-    @Test
-    public void testColdTemperature() {
-        try {
-            BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
-            TopItems shirt = new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
-            Outfit myOutfit = new Outfit(pants, shirt);
+  @Test
+  public void testColdTemperature() {
+    try {
+      BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
+      TopItems shirt =
+          new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
+      Outfit myOutfit = new Outfit(pants, shirt);
 
-            double coldTemperature = 50;
-            myOutfit.checkTemperature(coldTemperature);  
+      double coldTemperature = 50;
+      myOutfit.checkTemperature(coldTemperature);
 
-            fail("TemperatureException should have been thrown for cold weather");
-        } catch (TemperatureException e) {
+      fail("TemperatureException should have been thrown for cold weather");
+    } catch (TemperatureException e) {
 
-            assertEquals("Aren't you cold?? Get a jacket!!", e.getMessage());
-        }
+      assertEquals("Aren't you cold?? Get a jacket!!", e.getMessage());
     }
+  }
 
-    @Test
-    public void testOutfitDescriptionWithAccessoriesAndOuterwear() {
-    
-        BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
-        TopItems shirt = new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
-        AccessoriesItems hat = new AccessoriesItems("Cap", "Casual", "Baseball Cap", "Casual", "Spring", "Headwear");
-        OuterwearItems jacket = new OuterwearItems("Leather", "Jacket", "Leather Jacket", "Casual", "Fall", "Medium");
+  @Test
+  public void testOutfitDescriptionWithAccessoriesAndOuterwear() {
 
-        Outfit myOutfit = new Outfit(pants, shirt);
-        myOutfit.setAccessories(hat);
-        myOutfit.setOuterwear(jacket);
+    BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
+    TopItems shirt =
+        new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
+    AccessoriesItems hat =
+        new AccessoriesItems("Cap", "Casual", "Baseball Cap", "Casual", "Spring", "Headwear");
+    OuterwearItems jacket =
+        new OuterwearItems("Leather", "Jacket", "Leather Jacket", "Casual", "Fall", "Medium");
 
-        String outfitDescription = myOutfit.describeOutfit();
+    Outfit myOutfit = new Outfit(pants, shirt);
+    myOutfit.setAccessories(hat);
+    myOutfit.setOuterwear(jacket);
 
-        assertTrue(outfitDescription.contains("It is accessorized with a Baseball Cap."));
-        assertTrue(outfitDescription.contains("For outerwear, there's a Leather Jacket."));
-    }
+    String outfitDescription = myOutfit.describeOutfit();
 
-    @Test
-    public void testGetSetPants() {
-        BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
-        TopItems shirt = new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
-        Outfit myOutfit = new Outfit(pants, shirt);
+    assertTrue(outfitDescription.contains("It is accessorized with a Baseball Cap."));
+    assertTrue(outfitDescription.contains("For outerwear, there's a Leather Jacket."));
+  }
 
-        BottomItems newPants = new BottomItems("Chinos", null, null, null, null, null, false, null);
-        myOutfit.setPants(newPants);
+  @Test
+  public void testGetSetPants() {
+    BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
+    TopItems shirt =
+        new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
+    Outfit myOutfit = new Outfit(pants, shirt);
 
-        assertEquals("Chinos", myOutfit.getPants().getName());
-    }
+    BottomItems newPants = new BottomItems("Chinos", null, null, null, null, null, false, null);
+    myOutfit.setPants(newPants);
 
-    @Test
-    public void testGetSetShirt() {
-        BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
-        TopItems shirt = new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
-        Outfit myOutfit = new Outfit(pants, shirt);
+    assertEquals("Chinos", myOutfit.getPants().getName());
+  }
 
-        TopItems newShirt = new TopItems("Polo", null, null, null, null, false, null, null, null, false);
-        myOutfit.setTop(newShirt);
+  @Test
+  public void testGetSetShirt() {
+    BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
+    TopItems shirt =
+        new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
+    Outfit myOutfit = new Outfit(pants, shirt);
 
-        assertEquals("Polo", myOutfit.geShirt().getName());
-    }
+    TopItems newShirt =
+        new TopItems("Polo", null, null, null, null, false, null, null, null, false);
+    myOutfit.setTop(newShirt);
 
-    @Test
-    public void testGetSetFullBodyItem() {
-        Fullbody fullBody = new FullbodyItem("Jumpsuit", null, null, null, null, null, null, null, false, false);
-        Outfit myOutfit = new Outfit(fullBody);
+    assertEquals("Polo", myOutfit.geShirt().getName());
+  }
 
-        Fullbody newFullBody = new FullbodyItem("Overalls", null, null, null, null, null, null, null, false, false);
-        myOutfit.setFullBody((FullbodyItem) newFullBody);
+  @Test
+  public void testGetSetFullBodyItem() {
+    Fullbody fullBody =
+        new FullbodyItem("Jumpsuit", null, null, null, null, null, null, null, false, false);
+    Outfit myOutfit = new Outfit(fullBody);
 
-        assertEquals("Overalls", myOutfit.getFullBody().getName());
-    }
+    Fullbody newFullBody =
+        new FullbodyItem("Overalls", null, null, null, null, null, null, null, false, false);
+    myOutfit.setFullBody((FullbodyItem) newFullBody);
 
-    @Test
-    public void testDescribeOutfitWithoutAccessoriesAndOuterwear() {
-        BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
-        TopItems shirt = new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
-        Outfit myOutfit = new Outfit(pants, shirt);
+    assertEquals("Overalls", myOutfit.getFullBody().getName());
+  }
 
-        String description = myOutfit.describeOutfit();
+  @Test
+  public void testDescribeOutfitWithoutAccessoriesAndOuterwear() {
+    BottomItems pants = new BottomItems("Jeans", null, null, null, null, null, false, null);
+    TopItems shirt =
+        new TopItems("T-Shirt", null, null, null, null, false, null, null, null, false);
+    Outfit myOutfit = new Outfit(pants, shirt);
 
-        assertTrue(description.contains("The outfit for today is a T-Shirt paired with Jeans."));
-        assertFalse(description.contains("It is accessorized with"));
-        assertFalse(description.contains("For outerwear, there's"));
-    }
+    String description = myOutfit.describeOutfit();
 
-
-
+    assertTrue(description.contains("The outfit for today is a T-Shirt paired with Jeans."));
+    assertFalse(description.contains("It is accessorized with"));
+    assertFalse(description.contains("For outerwear, there's"));
+  }
 }

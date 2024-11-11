@@ -63,8 +63,4 @@ public class AccessoriesItems implements Accessories {
             occasion, seasonalPurpose, accessoryType));
     return description.toString();
   }
-
- 
-
-  
 }
