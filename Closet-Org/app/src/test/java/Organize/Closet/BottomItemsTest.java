@@ -25,7 +25,7 @@ public class BottomItemsTest {
   public void testSeasonalPurpose() {
     assertEquals(
         "summer",
-        jeans.seasonalPurpose(),
+        jeans.getSeasonalPurpose(),
         "getSeasinalPurpose should return the Season of the clothing item.");
   }
 

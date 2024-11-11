@@ -45,7 +45,7 @@ public class OuterwearItems implements OuterWear {
   }
 
   @Override
-  public String seasonalPurpose() {
+  public String getSeasonalPurpose() {
     return seasonalPurpose;
   }
 

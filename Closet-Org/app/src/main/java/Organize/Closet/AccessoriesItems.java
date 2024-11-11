@@ -45,7 +45,7 @@ public class AccessoriesItems implements Accessories {
   }
 
   @Override
-  public String seasonalPurpose() {
+  public String getSeasonalPurpose() {
     return seasonalPurpose;
   }
 

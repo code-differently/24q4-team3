@@ -51,7 +51,7 @@ public class BottomItems implements Bottoms {
   }
 
   @Override
-  public String seasonalPurpose() {
+  public String getSeasonalPurpose() {
     return seasonalPurpose;
   }
 

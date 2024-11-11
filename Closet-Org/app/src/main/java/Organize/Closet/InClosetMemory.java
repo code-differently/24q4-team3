@@ -6,86 +6,113 @@ import java.util.ListIterator;
 import java.util.stream.Collectors;
 
 public class InClosetMemory implements Closet {
-    private List<ArticleOfClothing> articleOfClothing = new ArrayList<>();
-        private Object clothingName;
-    
-        
-        @Override
-        public boolean removeArticleOfClothing(String clothing) {
-            return articleOfClothing.removeIf(item -> item.getName().equals(clothingName));
+  private List<ArticleOfClothing> articleOfClothing = new ArrayList<>();
+  private Object clothingName;
+
+  @Override
+  public boolean removeArticleOfClothing(String clothing) {
+    return articleOfClothing.removeIf(item -> item.getName().equals(clothingName));
+  }
+
+  @Override
+  public boolean updateArticleOfClothing(String clothingName, ArticleOfClothing updatedClothing) {
+    ListIterator<ArticleOfClothing> iterator = articleOfClothing.listIterator();
+
+    while (iterator.hasNext()) {
+      ArticleOfClothing item = iterator.next();
+      if (item.getName().equals(clothingName)) {
+        iterator.set(updatedClothing);
+        return true;
+      }
     }
+    return false;
+  }
 
-    @Override
-    public boolean updateArticleOfClothing(String clothingName, ArticleOfClothing updatedClothing) {
-        ListIterator<ArticleOfClothing> iterator = articleOfClothing.listIterator();
+  @Override
+  public List<ArticleOfClothing> getAllArticleOfClothings() {
+    return new ArrayList<>(articleOfClothing);
+  }
 
-        while (iterator.hasNext()) {
-            ArticleOfClothing item = iterator.next();
-            if (item.getName().equals(clothingName)) {
-                iterator.set(updatedClothing);
-                return true;
-            }
-        }
-                return false;
-}
+  @Override
+  public List<ArticleOfClothing> getArticleOfClothingBySeasonalPurpose(String season) {
+    return articleOfClothing.stream()
+        .filter(clothing -> clothing.getSeasonalPurpose().equalsIgnoreCase(season))
+        .collect(Collectors.toList());
+  }
 
-    @Override
-    public List<ArticleOfClothing> getAllArticleOfClothings() {
-        return new ArrayList<>(articleOfClothing);
-    }
+  @Override
+  public List<ArticleOfClothing> getArticleOfClothingByStyle(String style) {
+    return articleOfClothing.stream()
+        .filter(clothing -> clothing.getStyle().equalsIgnoreCase(style))
+        .collect(Collectors.toList());
+  }
 
-    @Override
-    public List<ArticleOfClothing> getArticleOfClothingBySeasonalPurpose(String season) {
-        return articleOfClothing.stream()
-                            .filter(clothing -> clothing.getSeasonalPurpose().equalsIgnoreCase(season))
-                            .collect(Collectors.toList());
-    }
+  @Override
+  public List<ArticleOfClothing> getArticleOfClothingByColor(String color) {
+    return articleOfClothing.stream()
+        .filter(clothing -> clothing.getColor().equalsIgnoreCase(color))
+        .collect(Collectors.toList());
+  }
 
-    @Override
-    public List<ArticleOfClothing> getArticleOfClothingByStyle(String style) {
-        return articleOfClothing.stream()
-                            .filter(clothing -> clothing.getStyle().equalsIgnoreCase(style))
-                            .collect(Collectors.toList());
-    }
+  @Override
+  public List<ArticleOfClothing> getArticleOfClothingByOccasion(String occasion) {
+    return articleOfClothing.stream()
+        .filter(clothing -> clothing.getOccasion().equalsIgnoreCase(occasion))
+        .collect(Collectors.toList());
+  }
 
-    @Override
-    public List<ArticleOfClothing> getArticleOfClothingByColor(String color) {
-        return articleOfClothing.stream()
-                            .filter(clothing -> clothing.getColor().equalsIgnoreCase(color))
-                            .collect(Collectors.toList());
-    }
- 
-    @Override
-    public List<ArticleOfClothing> getArticleOfClothingByOccasion(String occasion) {
-        return articleOfClothing.stream()
-                            .filter(clothing -> clothing.getOccasion().equalsIgnoreCase(occasion))
-                            .collect(Collectors.toList());
-    }
+  @Override
+  public List<ArticleOfClothing> getArticleOfClothingByName(String name) {
+    return articleOfClothing.stream()
+        .filter(clothing -> clothing.getName().equalsIgnoreCase(name))
+        .collect(Collectors.toList());
+  }
 
-    @Override
-    public List<ArticleOfClothing> getArticleOfClothingByName(String name) {
-        return articleOfClothing.stream()
-                            .filter(clothing -> clothing.getName().equalsIgnoreCase(name))
-                            .collect(Collectors.toList());
-    }
+  public List<ArticleOfClothing> getArticleOfClothing() {
+    return articleOfClothing;
+  }
 
-    public List<ArticleOfClothing> getArticleOfClothing() {
-        return articleOfClothing;
-    }
+  public void setArticleOfClothing(List<ArticleOfClothing> articleOfClothing) {
+    this.articleOfClothing = articleOfClothing;
+  }
 
-    public void setArticleOfClothing(List<ArticleOfClothing> articleOfClothing) {
-        this.articleOfClothing = articleOfClothing;
-    }
+  /*@Override
+  public void addArticleOfClothing(ArticleOfClothing clothing) {
+      if (clothing != null) {
+          articleOfClothing.add(clothing);
+      } else {
+          throw new IllegalArgumentException("Cannot add a null article of clothing");
+      }
 
-    @Override
-    public void addArticleOfClothing(ArticleOfClothing clothing) {
-        if (clothing != null) {
-            articleOfClothing.add(clothing);
-        } else {
-            throw new IllegalArgumentException("Cannot add a null article of clothing");
-        }
-        
-    }
+  }*/
 
+  @Override
+  public TopItems addArticleOfClothing(TopItems topItems) {
+    return topItems;
+  }
 
+  @Override
+  public OuterwearItems addArticleOfClothing(OuterwearItems outerwearItems) {
+    return outerwearItems;
+  }
+
+  @Override
+  public AccessoriesItems addArticleOfClothing(AccessoriesItems accessoriesItems) {
+    return accessoriesItems;
+  }
+
+  @Override
+  public BottomItems addArticleOfClothing(BottomItems bottomItems) {
+    return bottomItems;
+  }
+
+  @Override
+  public FullbodyItem addArticleOfClothing(FullbodyItem fullbodyItem) {
+    return fullbodyItem;
+  }
+
+  public void addArticleOfClothing(ArticleOfClothing fullbodyItem) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'addArticleOfClothing'");
+  }
 }
