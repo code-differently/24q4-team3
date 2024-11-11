@@ -13,6 +13,16 @@ public class Outfit {
     this.pants = pants;
     this.fullBody = null;
     this.shirt = shirt;
+    this.accessories = null;
+    this.outerwear = null;
+  }
+
+  public Outfit(BottomItems pants, TopItems shirt, AccessoriesItems accessories, OuterwearItems outerwear) {
+    this.pants = pants;
+    this.shirt = shirt;
+    this.accessories = accessories;
+    this.outerwear = outerwear;
+    this.fullBody = null;
   }
 
   public Outfit(FullbodyItem fullBody) {
@@ -49,8 +59,12 @@ public class Outfit {
     this.fullBody = newFullBody;
   }
 
-  public AccessoriesItems setAccessories(AccessoriesItems hat) {
-    return hat;
+  public AccessoriesItems getAccessories() {
+    return accessories;
+  }
+
+  public AccessoriesItems setAccessories(AccessoriesItems newAccesory) {
+    return this.accessories = newAccesory;
   }
 
   public OuterwearItems setOuterwear(OuterwearItems jacket) {
