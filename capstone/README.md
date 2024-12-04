@@ -1,4 +1,4 @@
-## 🎄 Wishes Under the Tree   
+# 🎄 Wishes Under the Tree   
 
 <table>
 <tr>
@@ -80,7 +80,8 @@ See the [open issues](https://github.com/code-differently/24q4-team3/issues) for
 
 ## Credits 
 * Typescript , Node.js
-* Anthony D. Mays , mentor
+* Anthony D. Mays , our mentor
+* (framework , code used to build the project)
 
 
 
