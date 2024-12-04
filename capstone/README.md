@@ -1,35 +1,11 @@
 # 🎄 Wishes Under the Tree   
+A festive webapp where users can build and share personalized, interactive gift lists for holidays like Christmas. The app will not only help people avoid duplicate gifts but also bring a touch of holiday planning-- all wrapped up in holdiay cheer!
 
-<table>
-<tr>
-<td>
- A festive webapp where users can build and share personalized, interactive gift lists for holidays like Christmas. The app will not only help people avoid duplicate gifts but also bring a touch of holiday planning-- all wrapped up in holdiay cheer!
-</td>
-</tr>
-</table>
+<img src="https://plus.unsplash.com/premium_photo-1663100841840-cf7a43b48efc?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="500" alt="placeholder"/>
 
-🖼️ 
-##### screenshot coming soon!
 
 ## Demo
 Here is a working live demo :  [to be added]
-
-## The Team
-<a href="https://github.com/AmiyahJo" target="_blank">
-<img src="https://avatars.githubusercontent.com/u/86239804?s=64&amp;v=4" alt="@AmiyahJo" size="60" height="60" width="60">
-</a>
-
- <a href="https://github.com/Dasiame" target="_blank">
-<img src="https://avatars.githubusercontent.com/u/182562768?s=64&amp;v=4" alt="@Dasiame" size="60" height="60" width="60">
-</a>
-
-<a href="https://github.com/haldanek" target="_blank">
-<img src="https://avatars.githubusercontent.com/u/182563357?s=64&amp;v=4" alt="@haldanek" size="60" height="60" width="60">
-</a>
-
-<a href="https://github.com/yafiaha" target="_blank">
-<img src="https://avatars.githubusercontent.com/u/72883973?s=64&amp;v=4" alt="@yafiaha" size="60" height="60" width="60">
-</a>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -69,16 +45,17 @@ Make sure you have the following installed:
 Here's whats next for our project
 - [x] Add Changelog
 - [x] Add back to top links
-- [ ] Add Additional seasonal features w/ Examples
+- [ ] Add Additional wishlist versions  
     - [ ] Birthday
     - [ ] New years
 
 See the [open issues](https://github.com/code-differently/24q4-team3/issues) for a full list of proposed features (and known issues).
 
 ## Credits 
+* __Developed by__: Team 3 ft. [@AmiyahJo](https://github.com/AmiyahJo) , [@haldanek](https://github.com/haldanek), [@Dasiame](https://github.com/Dasiame), [@yafiaha](https://github.com/yafiaha)
 * __Technologies Used__: Typescript , Node.js
+* __Frameworks/Tools__: React
 * __Mentor__: Anthony D. Mays 
-* __Frameworks/Tools__: React 
 
 
 
