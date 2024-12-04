@@ -1,5 +1,5 @@
 # 🎄 Wishes Under the Tree   
-A festive webapp where users can build and share personalized, interactive gift lists for holidays like Christmas. The app will not only help people avoid duplicate gifts but also bring a touch of holiday planning-- all wrapped up in holdiay cheer!
+A festive webapp where users can build and share personalized, interactive gift lists for holidays like Christmas. The app will not only help people avoid duplicate gifts but also bring a touch of holiday planning-- all wrapped up in holiday cheer!
 
 <img src="https://plus.unsplash.com/premium_photo-1663100841840-cf7a43b48efc?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="500" alt="placeholder"/>
 
@@ -53,7 +53,7 @@ See the [open issues](https://github.com/code-differently/24q4-team3/issues) for
 
 ## Credits 
 * __Developed by__: Team 3 ft. [@AmiyahJo](https://github.com/AmiyahJo) , [@haldanek](https://github.com/haldanek), [@Dasiame](https://github.com/Dasiame), [@yafiaha](https://github.com/yafiaha)
-* __Technologies Used__: Typescript , Node.js
+* __Technologies Used__: Typescript , Next.js
 * __Frameworks/Tools__: React
 * __Mentor__: Anthony D. Mays 
 
