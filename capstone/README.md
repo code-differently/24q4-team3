@@ -1,3 +1,5 @@
+Readme
+
 # 🎄 Wishes Under the Tree   
 A festive webapp where users can build and share personalized, interactive gift lists for holidays like Christmas. The app will not only help people avoid duplicate gifts but also bring a touch of holiday planning-- all wrapped up in holiday cheer!
 
@@ -56,8 +58,3 @@ See the [open issues](https://github.com/code-differently/24q4-team3/issues) for
 * __Technologies Used__: Typescript , Next.js
 * __Frameworks/Tools__: React
 * __Mentor__: Anthony D. Mays 
-
-
-
-
-
