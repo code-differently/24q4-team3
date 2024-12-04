@@ -3,13 +3,13 @@
 <table>
 <tr>
 <td>
- A webapp where users can build and share personalized, interactive gift lists for holidays like Christmas. The app will not only help people avoid duplicate gifts but also incorporate smart suggestions, social features, and a touch of holiday cheer.
+ A festive webapp where users can build and share personalized, interactive gift lists for holidays like Christmas. The app will not only help people avoid duplicate gifts but also bring a touch of holiday planning-- all wrapped up in holdiay cheer!
 </td>
 </tr>
 </table>
 
 🖼️ 
-##### screenshot to be added
+##### screenshot coming soon!
 
 ## Demo
 Here is a working live demo :  [to be added]
@@ -34,35 +34,32 @@ Here is a working live demo :  [to be added]
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Here's how to set up the project locally:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Make sure you have the following installed:
 * npm
   ```sh
   npm install npm@latest -g
   ```
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/github_username/repo_name.git
    ```
-3. Install NPM packages
+2. Install dependencies
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. Set up the API key
+   Get a free API key at [https://example.com] and add it to `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
-5. Change git remote url to avoid accidental pushes to base project
+6. Update the git remote
+    Change git remote url to avoid accidental pushes to base project:
    ```sh
    git remote set-url origin github_username/repo_name
    git remote -v # confirm the changes
@@ -79,9 +76,9 @@ Here's whats next for our project
 See the [open issues](https://github.com/code-differently/24q4-team3/issues) for a full list of proposed features (and known issues).
 
 ## Credits 
-* Typescript , Node.js
-* Anthony D. Mays , our mentor
-* (framework , code used to build the project)
+* __Technologies Used__: Typescript , Node.js
+* __Mentor__: Anthony D. Mays 
+* __Frameworks/Tools__: React 
 
 
 
