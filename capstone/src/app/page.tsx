@@ -1,6 +1,5 @@
 
 import WishlistForm from './components/WishlistForm';
-import ChristmasScene from "./components/ChristmasScene";
 
 export default function Home() {
   return (
