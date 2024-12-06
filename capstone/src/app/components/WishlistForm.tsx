@@ -66,7 +66,7 @@ export default function WishlistForm() {
   };
 
   return (
-    <div className="w-full max-w-md p-6 bg-gradient-to-br from-red-200 via-white to-green-200 rounded-lg shadow-xl border-4 border-green-500">
+    <div className="w-full max-w-md p-6 bg-gradient-to-br from-red-200 via-white to-green-200 rounded-lg shadow-xl">
       <h1 className="text-3xl font-bold mb-6 text-green-800 text-center">🎄 My Christmas Wishlist 🎄</h1>
 
       {/* URL Input */}
