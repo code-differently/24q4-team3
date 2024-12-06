@@ -1,0 +1,50 @@
+.snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999; /* Ensure it overlays content */
+  }
+  
+  .snowflake {
+    position: absolute;
+    top: -10%; /* Start above the viewport */
+    font-size: 1.5rem; /* Adjust size of snowflakes */
+    color: white;
+    opacity: 0.8;
+    animation: fall infinite linear, sway infinite ease-in-out;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(110%);
+    }
+  }
+  
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+  }
+  
+  /* Randomize positions, durations, and delays */
+  .snowflake:nth-child(odd) {
+    animation-duration: 5s;
+    animation-delay: calc(-1s * var(--i));
+    left: calc(100% * var(--i) / 10);
+  }
+  
+  .snowflake:nth-child(even) {
+    animation-duration: 7s;
+    animation-delay: calc(-2s * var(--i));
+    left: calc(100% * var(--i) / 10);
+  }
