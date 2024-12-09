@@ -1,7 +1,7 @@
 Readme
 
 # 🎄 Wishes Under the Tree   
-A festive webapp where users can build and share a personalized, interactive wishlist. The app not only helps with gift recomendations but adds a touch of holiday planning-- all wrapped up in festive cheer!
+A festive webapp where users can build and share a personalized, interactive wishlist. The app not only helps with gift recommendations but adds a touch of holiday planning-- all wrapped up in festive cheer!
 
 <img width="1060" alt="Screenshot" src="https://github.com/user-attachments/assets/4ffa123a-0498-49f6-9679-a6be4e5dfd47">
 
