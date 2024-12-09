@@ -5,7 +5,7 @@ import {
     SignedOut,
     UserButton
   } from '@clerk/nextjs';
-  import '@/styles/globals.css';
+  import '@/globals.css';
   import type { AppProps } from 'next/app';
   
   function App({ Component, pageProps }: AppProps) {
