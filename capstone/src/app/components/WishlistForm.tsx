@@ -66,11 +66,11 @@ export default function WishlistForm() {
   };
 
   return (
-    <div className="w-full max-w-md p-6 bg-red-100 rounded-lg shadow-lg border-2 border-red-600">
-      <h1 className="text-3xl font-bold mb-6 text-green-600 text-center">🎄 My Christmas Wishlist 🎄</h1>
+    <div className="w-full max-w-md p-6 bg-gradient-to-br from-red-200 via-white to-green-200 rounded-lg shadow-xl">
+      <h1 className="text-3xl font-bold mb-6 text-green-800 text-center">🎄 My Christmas Wishlist 🎄</h1>
 
       {/* URL Input */}
-      <form onSubmit={handleSubmit} className={`flex flex-col gap-4 mb-6 ${error ? 'bg-red-200' : 'bg-white'}`}>
+      <form onSubmit={handleSubmit} className={`flex flex-col gap-4 mb-6 ${error ? 'bg-red-200 border border-red-400' : 'bg-white'} p-4 rounded shadow-sm`}>
         <input
           type="url"
           value={url}
@@ -82,7 +82,7 @@ export default function WishlistForm() {
         <button
           type="submit"
           disabled={loading}
-          className="p-3 bg-green-600 text-white rounded disabled:opacity-50 hover:bg-green-500"
+          className="p-3 bg-green-600 text-white rounded disabled:opacity-50 hover:bg-green-500 transition-all duration-300"
         >
   
           {loading ? 'Adding...' : 'Add to Wishlist'}
