@@ -1,28 +1,39 @@
 import { NextResponse } from 'next/server';
-import ogs from 'open-graph-scraper';
 import axios from 'axios';
-import cheerio from 'cheerio';
-import { MongoClient } from 'mongodb';
+import * as cheerio from 'cheerio';
 
 interface WishlistItem {
   title: string;
-  price: string;
-  image: string;
   url: string;
 }
 
-async function getPriceAndImageFallback(url: string) {
+// Function to get the title
+async function getTitleFromHTML(url: string) {
   try {
-    const { data } = await axios.get(url);
+    // Send the GET request with custom headers and timeout
+    const { data } = await axios.get(url, {
+      headers: { 
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36' 
+      },
+      timeout: 5000, // Timeout after 5 seconds
+    });
+
+    // Load the HTML into cheerio
     const $ = cheerio.load(data);
 
-    // Scraping for price and image, with fallback to Christmas image
-    const price = $('meta[property="product:price:amount"]').attr('content') || '';
-    const image = $('meta[property="og:image"]').attr('content') || '/christmas-gift.png'; 
-    return { price, image };
+    // Try to extract the title from Open Graph metadata
+    let title = $('meta[property="og:title"]').attr('content');
+
+    // If `og:title` is not found, try to extract the `<title>` tag
+    if (!title) {
+      title = $('title').text().trim();
+    }
+
+    // If still no title, fallback to a default value
+    return title || 'No Title Found';
   } catch (error) {
-    console.error('Error scraping the page:', error);
-    return { price: '', image: '/christmas-gift.png' };  
+    console.error('Error fetching title from HTML:', error.message);
+    return 'No Title Found';
   }
 }
 
@@ -34,63 +45,53 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
 
-    // Fetch Open Graph data
-    const { error, result } = await ogs({ url });
+    // Get the title from the URL
+    const title = await getTitleFromHTML(url);
 
-    if (error) {
-      console.error('OGS error:', error);
-      return NextResponse.json({ error: 'Failed to fetch metadata from the URL' }, { status: 500 });
-    }
-
-    // If result is undefined or missing critical data, fall back
-    if (!result || !result.ogImage?.url) {
-      const { price, image } = await getPriceAndImageFallback(url);
-      const newItem: WishlistItem = {
-        title: result?.ogTitle || 'No Title Found',
-        price: price || 'Price not available',
-        image,
-        url,
-      };
-      
-      // MongoDB interaction
-      const clientPromise = import('../../lib/mongodb').then(mod => mod.default);
-      const client = await clientPromise;
-      const database = client.db('wishlistDB');
-      const collection = database.collection('wishlistItems');
-      const insertResult = await collection.insertOne(newItem);
-      console.log('Inserted wishlist item:', insertResult);
-
-      return NextResponse.json({ message: 'Wishlist item saved successfully', data: newItem }, { status: 201 });
-    }
-
-    // Process the result
-    let image = result.ogImage?.url || '/christmas-gift.png';  
-    let price = result.ogPriceAmount || 'Price not available';
-
+    // Construct the new wishlist item
     const newItem: WishlistItem = {
-      title: result.ogTitle || 'No Title Found',
-      price,
-      image,
+      title,
       url,
     };
 
-    // MongoDB interaction
-    const clientPromise = import('../../lib/mongodb').then(mod => mod.default);
+    // MongoDB interaction to store the item
+    const clientPromise = import('../../lib/mongodb').then((mod) => mod.default);
     const client = await clientPromise;
     const database = client.db('wishlistDB');
     const collection = database.collection('wishlistItems');
-    const insertResult = await collection.insertOne(newItem);
-    console.log('Inserted wishlist item:', insertResult);
+    await collection.insertOne(newItem);
 
     return NextResponse.json({ message: 'Wishlist item saved successfully', data: newItem }, { status: 201 });
 
   } catch (error) {
-    console.error('Error in /api/wishlist:', error);
+    console.error('Error in /api/wishlist:', error.message);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
 
+export async function DELETE(request: Request) {
+  try {
+    const { url } = await request.json();
 
+    if (!url) {
+      return new Response(JSON.stringify({ error: 'URL is required' }), { status: 400 });
+    }
 
+    // MongoDB interaction to delete the item
+    const clientPromise = import('../../lib/mongodb').then(mod => mod.default);
+    const client = await clientPromise;
+    const database = client.db('wishlistDB');
+    const collection = database.collection('wishlistItems');
 
+    const deleteResult = await collection.deleteOne({ url });
 
+    if (deleteResult.deletedCount === 0) {
+      return new Response(JSON.stringify({ error: 'Item not found' }), { status: 404 });
+    }
+
+    return new Response(JSON.stringify({ message: 'Item deleted successfully' }), { status: 200 });
+  } catch (error) {
+    console.error('Error in DELETE /api/wishlist:', error.message);
+    return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
+  }
+}

@@ -59,10 +59,33 @@ export default function WishlistForm() {
     }
   };
 
-  const removeItem = (index: number) => {
-    const updatedWishlist = wishlist.filter((_, i) => i !== index);
-    setWishlist(updatedWishlist);
-    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist)); // Update localStorage
+  const removeItem = async (url: string) => {
+    try {
+      // Send DELETE request to the backend
+      const response = await fetch('/api/wishlist', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url }), // Send the unique URL for deletion
+      });
+  
+      if (response.ok) {
+        // Update local state and localStorage
+        setWishlist((prev) => {
+          const updatedWishlist = prev.filter((item) => item.url !== url); // Match URL for deletion
+          localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+          return updatedWishlist;
+        });
+      } else {
+        const errorData = await response.json();
+        console.error('Error removing item:', errorData.error);
+        setError(errorData.error || 'Failed to remove item from wishlist');
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      setError('An unexpected error occurred');
+    }
   };
 
   return (
@@ -137,7 +160,7 @@ export default function WishlistForm() {
             </a>
         </div>
             <button
-              onClick={() => removeItem(index)}
+              onClick={() => removeItem(item.url)}
               className="ml-4 p-2 bg-red-600 text-white rounded-full hover:bg-red-700 focus:outline-none transition-all duration-200"
             >
               Remove
