@@ -16,6 +16,9 @@ Here's how to set up the project locally:
 
 ### Prerequisites
 
+* Node.js (v16.x or newer)- https://nodejs.org/en
+* Git - https://git-scm.com/
+
 Make sure you have the following installed:
 * npm
   ```sh
@@ -25,23 +28,24 @@ Make sure you have the following installed:
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/code-differently/24q4-team3.git
    ```
-2. Install dependencies
+2. Navigate to the capstone Folder
+
+    ```sh
+    cd 24q4-team3/capstone
+    ```
+3. Install dependencies
    ```sh
    npm install
    ```
-4. Set up the API key
-   Get a free API key at [https://example.com] and add it to `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-6. Update the git remote
-    Change git remote url to avoid accidental pushes to base project:
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
+## Running the Development Server
+   To start the development server, use one of the following commands:
+
+Using npm:
+```sh
+npm run dev
+```
 <!-- ROADMAP -->
 ## Roadmap
 Here's whats next for our project
