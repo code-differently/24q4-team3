@@ -56,6 +56,7 @@ Here's whats next for our project
     - [ ] New years
 
 See the [open issues](https://github.com/code-differently/24q4-team3/issues) for a full list of proposed features (and known issues).
+- You are able to add up to 10 items to your wishlist.
 
 ## Credits 
 * __Developed by__: Team 3 ft. [@AmiyahJo](https://github.com/AmiyahJo) , [@haldanek](https://github.com/haldanek), [@Dasiame](https://github.com/Dasiame), [@yafiaha](https://github.com/yafiaha)
