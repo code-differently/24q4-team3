@@ -16,7 +16,7 @@ const ChristmasTree: React.FC = () => {
     { color: "maroon", position: { x: "55%", y: "70%" } },
     { color: "gold", position: { x: "70%", y: "75%" } },
     { color: "white", position: { x: "60%", y: "80%" } },
-    { color: "red", position: { x: "35%", y: "75%" } },
+    { color: "red", position: { x: "30%", y: "75%" } },
     { color: "blue", position: { x: "70%", y: "52%" } },
   ];
   
