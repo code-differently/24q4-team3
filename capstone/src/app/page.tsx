@@ -4,7 +4,7 @@ import Link from "next/link";
 import ChristmasScene from './components/ChristmasScene';
 import WishlistForm from './components/WishlistForm';
 import Snowfall from './components/Snowfall';
-import Image from 'next/image'; // Import Image component for optimization
+import Image from 'next/image'; 
 
 export default function Home() {
   return (
@@ -12,10 +12,10 @@ export default function Home() {
       {/* Logo */}
       <div className="mb-4">
         <Image 
-          src="/logo.png"  // Path to the logo image in the 'public' directory
-          alt="App Logo"    // Alt text for accessibility
-          width={150}       // Adjust the width as needed
-          height={150}      // Adjust the height as needed
+          src="/logo.png"  
+          alt="App Logo"    
+          width={150}       
+          height={150}      
         />
       </div>
 

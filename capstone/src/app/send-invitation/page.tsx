@@ -27,11 +27,11 @@ const SendInvitation = () => {
       setRecipientName('');
       setRecipientContact('');
     } catch (error) {
-      // Type Guard: check if 'error' is an instance of Error
+      
       if (error instanceof Error) {
-        alert(error.message); // Access the message safely
+        alert(error.message); 
       } else {
-        // If the error is not an instance of Error, handle it generically
+        
         alert('An unexpected error occurred.');
       }
     } finally {
