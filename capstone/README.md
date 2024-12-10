@@ -1,7 +1,7 @@
 Readme
 
 # 🎄 Wishes Under the Tree   
-A festive webapp where users can build and share a personalized, interactive wishlist. The app not only helps with gift recomendations but adds a touch of holiday planning-- all wrapped up in festive cheer!
+A festive webapp where users can build and share a personalized, interactive wishlist. The app not only helps with gift recommendations but adds a touch of holiday planning-- all wrapped up in festive cheer!
 
 <img width="1060" alt="Screenshot" src="https://github.com/user-attachments/assets/4ffa123a-0498-49f6-9679-a6be4e5dfd47">
 
@@ -56,6 +56,7 @@ Here's whats next for our project
     - [ ] New years
 
 See the [open issues](https://github.com/code-differently/24q4-team3/issues) for a full list of proposed features (and known issues).
+- You are able to add up to 10 items to your wishlist.
 
 ## Credits 
 * __Developed by__: Team 3 ft. [@AmiyahJo](https://github.com/AmiyahJo) , [@haldanek](https://github.com/haldanek), [@Dasiame](https://github.com/Dasiame), [@yafiaha](https://github.com/yafiaha)
