@@ -1,19 +1,23 @@
 interface LightProps {
   color: string;
-  position: { x: number; y: number };
+  position: { x: string; y: string };
 }
+
 
 const Light: React.FC<LightProps> = ({ color, position }) => {
   return (
     <div
-      className={`absolute rounded-full w-4 h-4 animate-blink`}
+      className="absolute w-4 h-4 rounded-full blink"
       style={{
+        left: position.x,
+        top: position.y,
+        transform: "translate(-50%, -50%)",
         backgroundColor: color,
-        left: `${position.x}px`,
-        top: `${position.y}px`,
       }}
-    ></div>
+    />
   );
 };
 
 export default Light;
+
+
