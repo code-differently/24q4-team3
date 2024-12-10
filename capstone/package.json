@@ -15,10 +15,10 @@
     "express": "^4.21.2",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.3",
-    "next": "15.0.3",
+    "next": "^15.0.3",
     "open-graph-scraper": "^6.8.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react": "^19.0.0-rc-66855b96-20241106",
+    "react-dom": "^19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
     "@types/node": "^20",
