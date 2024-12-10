@@ -10,6 +10,13 @@ const SendInvitation = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+
+    if (!recipientName || !recipientContact) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     setLoading(true);
 
     try {
