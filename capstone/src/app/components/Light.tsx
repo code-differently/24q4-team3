@@ -13,6 +13,7 @@ const Light: React.FC<LightProps> = ({ color, position }) => {
         top: position.y,
         transform: "translate(-50%, -50%)",
         backgroundColor: color,
+        animation: "blink 1.5s infinite ease-in-out",
       }}
     />
   );
