@@ -33,10 +33,10 @@ async function getTitleFromHTML(url: string) {
     return title || 'No Title Found';
   } catch (error: unknown) {
     if (error instanceof Error) {
-    console.error('Error fetching title from HTML:', error.message);
-  } else {
-    console.error('Unknown error:', error);
-  }
+      console.error('Error fetching title from HTML:', error.message);
+    } else {
+      console.error('Unknown error:', error);
+    }
     return 'No Title Found';
   }
 }
@@ -69,10 +69,11 @@ export async function POST(request: Request) {
 
   } catch (error: unknown) {
     if (error instanceof Error) {
-    console.error('Error in /api/wishlist:', error.message, error.stack);
-  } else {
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+      console.error('Error in /api/wishlist:', error.message, error.stack);
+    } else {
+      console.error('Unknown error in /api/wishlist:', error);
     }
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
 
@@ -99,10 +100,10 @@ export async function DELETE(request: Request) {
     return new Response(JSON.stringify({ message: 'Item deleted successfully' }), { status: 200 });
   } catch (error: unknown) {
     if (error instanceof Error) {
-    console.error('Error in DELETE /api/wishlist:', error.message);
-  } else {
-    console.error('Unknown error in DELETE /api/wishlist', error);
-  }
+      console.error('Error in DELETE /api/wishlist:', error.message);
+    } else {
+      console.error('Unknown error in DELETE /api/wishlist:', error);
+    }
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
   }
 }
