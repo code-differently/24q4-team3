@@ -99,10 +99,14 @@ export default function WishlistForm() {
       {/* URL Input */}
       <form
         onSubmit={handleSubmit}
+        
         className={`flex flex-col gap-4 mb-6 ${
           error ? "bg-[#FEE2E2] border border-[#EF4444]" : "bg-white"
         } p-4 rounded shadow-sm`}
       >
+      <h5>
+          *Adds up to 10 wishes!
+          </h5>
         <input
           type="url"
           value={url}
