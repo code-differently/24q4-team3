@@ -20,7 +20,7 @@ const SendInvitation = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/send-invitation', {
+      const response = await fetch('/api/send-invitation/send-invitation.ts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
