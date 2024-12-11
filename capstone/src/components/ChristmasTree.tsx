@@ -3,38 +3,36 @@ import Light from "./Light";
 
 const ChristmasTree: React.FC = () => {
   const lights = [
-    { color: "red", position: { x: 140, y: 70 } }, 
-    { color: "green", position: { x: 80, y: 100 } },
-    { color: "blue", position: { x: 125, y: 130 } }, 
-    { color: "yellow", position: { x: 70, y: 200 } },
-    { color: "maroon", position: { x: 100, y: 300 } },
-    { color: "green", position: { x: 60, y: 250 } },
-    { color: "gold", position: { x: 165, y: 118 } },
-    { color: "white", position: { x: 120, y: 180 } },
-    { color: "blue", position: { x: 50, y: 170 } },
-    { color: "pink", position: { x: 140, y: 360 } },
-    { color: "maroon", position: { x: 40, y: 350 } },
-    { color: "gold", position: { x: 150, y: 260 } },
-    { color: "white", position: { x: 180, y: 300 } },
-    { color: "pink", position: { x: 190, y: 200 } },
-    { color: "blue", position: { x: 110, y: 230 } }, 
- 
+    { color: "red", position: { x: "59%", y: "20%" } },
+    { color: "green", position: { x: "40%", y: "25%" } },
+    { color: "blue", position: { x: "55%", y: "30%" } },
+    { color: "yellow", position: { x: "45%", y: "35%" } },
+    { color: "maroon", position: { x: "65%", y: "40%" } },
+    { color: "green", position: { x: "35%", y: "45%" } },
+    { color: "red", position: { x: "50%", y: "50%" } },
+    { color: "white", position: { x: "63%", y: "60%" } },
+    { color: "blue", position: { x: "35%", y: "60%" } },
+    { color: "pink", position: { x: "45%", y: "65%" } },
+    { color: "maroon", position: { x: "55%", y: "70%" } },
+    { color: "gold", position: { x: "70%", y: "75%" } },
+    { color: "white", position: { x: "60%", y: "80%" } },
+    { color: "red", position: { x: "30%", y: "75%" } },
+    { color: "blue", position: { x: "70%", y: "52%" } },
   ];
-
+  
   return (
-    <div className="relative h-96 w-48 mx-auto">
-      <img src="tree.png" alt="Christmas tree" className="absolute inset-0 w-full h-full" />
+    <div className="relative w-full h-full">
+      <img
+        src="/tree.png"
+        alt="Christmas tree"
+        className="w-full h-full object-contain"
+      />
+
       {lights.map((light, index) => (
-        <Light
-          key={index}
-          color={light.color}
-          position={light.position}
-        />
+        <Light key={index} color={light.color} position={light.position} />
       ))}
     </div>
   );
 };
 
 export default ChristmasTree;
-
-  

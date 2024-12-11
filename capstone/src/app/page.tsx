@@ -8,22 +8,8 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-nutmeg p-4">
-      {/* Logo */}
-      <div className="mb-4">
-        <Image 
-          src="/logo.png"  
-          alt="App Logo"    
-          width={150}       
-          height={150}      
-        />
-      </div>
-
-      {/* Main Content */}
-      <Snowfall />
-      <h1 className="text-3xl font-bold mb-6 text-white text-center">
-        Welcome to Wishes Under the Tree
-      </h1>
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-nutmeg p-4 gap-8">
+      <Snowfall /> 
       <WishlistForm />
       <ChristmasScene />
       
