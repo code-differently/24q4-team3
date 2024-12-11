@@ -1,6 +1,8 @@
 // pages/api/send-invitation.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import ejs from 'ejs';
+import fs from 'fs';
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,6 +13,7 @@ export default async function handler(
   }
 
   const { recipientName, recipientContact } = req.body;
+  
 
   // Validate the input
   if (!recipientName || !recipientContact) {
@@ -27,22 +30,26 @@ export default async function handler(
       },
     });
 
+    const templateString = fs.readFileSync('./email-template.ejs', 'utf-8');
+
+    const data = {
+      recipientName: 'family',
+    };
+
+    const html = ejs.render(templateString, data);
+
     const mailOptions = {
       from: `"Wishes Under the Tree" <${process.env.EMAIL_USER}>`,
       to: recipientContact,
       subject: `You're Invited to View ${recipientName}'s Wishlist!`,
-      html: `
-        <p>Hi ${recipientName},</p>
-        <p>${recipientName} has invited you to view their wishlist on <b>Wishes Under the Tree</b>.</p>
-        <p>Click the button below to view it:</p>
-        <a href="https://your-app.com/wishlist" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none;">View Wishlist</a>
-        <p>This link will expire in 1 week.</p>
-      `,
+      html: html,
     };
 
     // Send the email
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log(`Email sent: ${info.messageId}`);
 
+    
     // Send success response
     return res.status(200).json({ message: 'Invitation sent successfully' });
   } catch (error) {
