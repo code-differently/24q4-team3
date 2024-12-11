@@ -32,7 +32,10 @@ async function getTitleFromHTML(url: string) {
     // If still no title, fallback to a default value
     return title || 'No Title Found';
   } catch (error) {
-    console.error('Error fetching title from HTML:', error.message);
+    if (error instanceof Error) {
+      console.error('Error fetching title from HTML:', error.message);
+    }
+    
     return 'No Title Found';
   }
 }
@@ -64,7 +67,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Wishlist item saved successfully', data: newItem }, { status: 201 });
 
   } catch (error) {
-    console.error('Error in /api/wishlist:', error.message);
+    if (error instanceof Error)  {
+      console.error('Error in /api/wishlist:', error.message);
+    }
+    
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
@@ -91,7 +97,10 @@ export async function DELETE(request: Request) {
 
     return new Response(JSON.stringify({ message: 'Item deleted successfully' }), { status: 200 });
   } catch (error) {
-    console.error('Error in DELETE /api/wishlist:', error.message);
+    if (error instanceof Error) {
+      console.error('Error in DELETE /api/wishlist:', error.message);
+    }
+    
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
   }
 }

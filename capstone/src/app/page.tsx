@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import ChristmasScene from './components/ChristmasScene';
-import WishlistForm from './components/WishlistForm';
-import Snowfall from './components/Snowfall';
+import ChristmasScene from '../components/ChristmasScene';
+import WishlistForm from '../components/WishlistForm';
+import Snowfall from '../components/Snowfall';
 import Image from 'next/image'; 
 
 export default function Home() {
