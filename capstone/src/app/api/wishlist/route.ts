@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     };
 
    
-    const clientPromise = import('../../../lib/mongodb').then((mod) => mod.default);
+    const clientPromise = import('../../lib/mongodb').then((mod) => mod.default);
     const client = await clientPromise;
     const database = client.db('wishlistDB');
     const collection = database.collection('wishlistItems');
@@ -86,7 +86,7 @@ export async function DELETE(request: Request) {
     }
 
     
-    const clientPromise = import('../../../lib/mongodb').then(mod => mod.default);
+    const clientPromise = import('../../lib/mongodb').then(mod => mod.default);
     const client = await clientPromise;
     const database = client.db('wishlistDB');
     const collection = database.collection('wishlistItems');

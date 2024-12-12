@@ -20,12 +20,12 @@ const SendInvitation = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/send-invitation/send-invitation.ts', {
+      const response = await fetch('/api/invitation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           recipientName,
-          recipientContact,
+          recipientEmail: recipientContact,
           isEmail,
         }),
       });

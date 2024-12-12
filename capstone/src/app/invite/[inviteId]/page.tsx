@@ -1,6 +1,11 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import React from 'react';
+
+type InvitePageProps = {
+  params: Promise<{ inviteId: string }>;
+};
 
 interface InviteData {
   senderName: string;
@@ -8,20 +13,22 @@ interface InviteData {
   wishlist: string[];
 }
 
-const InvitePage = () => {
-  const router = useRouter();
-  const { inviteId } = router.query; 
+export default function InvitePage({params}: InvitePageProps) {
   const [inviteData, setInviteData] = useState<InviteData | null>(null); 
 
   useEffect(() => {
-    if (inviteId) {
-      
-      fetch(`/api/invite/${inviteId}`)
-        .then((res) => res.json())
-        .then((data: InviteData) => setInviteData(data)) 
-        .catch((error) => console.error('Error fetching invite data:', error));
-    }
-  }, [inviteId]);
+    const fetchInviteData = async () => {
+      try {
+        const { inviteId } = await params;
+        const res = await fetch(`/api/invite/${inviteId}`);
+        const data = await res.json();
+        setInviteData(data);
+      } catch (error) {
+        console.error('Error fetching invite data:', error);
+      };
+    };
+    fetchInviteData();
+  }, []);
 
   return (
     <div>
@@ -38,5 +45,3 @@ const InvitePage = () => {
     </div>
   );
 };
-
-export default InvitePage;

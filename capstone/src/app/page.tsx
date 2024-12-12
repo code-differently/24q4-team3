@@ -1,7 +1,7 @@
 
-import ChristmasScene from './components/ChristmasScene';
-import WishlistForm from './components/WishlistForm';
-import Snowfall from './components/Snowfall';
+import ChristmasScene from '../components/ChristmasScene';
+import WishlistForm from '../components/WishlistForm';
+import Snowfall from '../components/Snowfall';
 
 export default function Home() {
   return (

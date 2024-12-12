@@ -1,18 +1,20 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import crypto from 'crypto'; 
-import { getInviteFromDatabase } from '../../../lib/mongodb';
-import { saveInviteToDatabase } from '../../../lib/inviteStorage'; 
+import { saveInviteToDatabase } from '../../lib/mongodb';
+import { currentUser } from '@clerk/nextjs/server';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method Not Allowed' });
-  }
+// Exports an API route handler for POST requests.
+export async function POST(req: Request) {
+  // Get the current user's details.
+  const user = await currentUser();
+  const senderName = `${user?.firstName} ${user?.lastName}`;
 
-  const { recipientEmail, recipientName, senderName } = req.body;
+  // Get the recipient's email and name from the request body.
+  const { recipientEmail, recipientName } = await req.json();
 
-  if (!recipientEmail || !recipientName || !senderName) {
-    return res.status(400).json({ message: 'Missing required fields' });
+  if (!recipientEmail || !recipientName) {
+    return Response.json({ message: 'Missing required fields'}, { status: 400 });
   }
 
   try {
@@ -26,6 +28,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       recipientEmail,
       permissions: 'read-only',
     });
+
+    console.log('Invite saved to database:', inviteId);
 
  
     const transporter = nodemailer.createTransport({
@@ -52,9 +56,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     };
 
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Invitation sent successfully' });
+    return Response.json({ message: 'Invitation sent successfully'});
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Failed to send invitation' });
+    return Response.json({ message: 'Failed to send invitation' }, { status: 500 });
   }
 }
