@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import crypto from 'crypto'; 
-import { getInviteFromDatabase } from '../../lib/mongodb';
+import { getInviteFromDatabase } from '../../../lib/mongodb';
 import { saveInviteToDatabase } from '../../../lib/inviteStorage'; 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -29,7 +29,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
  
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "Gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_APP_PASSWORD,

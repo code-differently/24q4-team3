@@ -9,14 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-
-
-    "test": "echo \"Error: no test specified\" && exit 1"
-
-    "test": "jest"
-
-
-    "test": "jest"
+    "test": "jest"  
 
   },
   "author": "",
@@ -35,6 +28,7 @@
     "open-graph-scraper": "^6.8.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",

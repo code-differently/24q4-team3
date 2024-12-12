@@ -1,20 +1,27 @@
 import { clerkMiddleware, ClerkMiddlewareAuth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 
+
 const isPublicRoute = (path: string) => {
   return ['/sign-in', '/sign-up', '/invite'].some((publicPath) => path.startsWith(publicPath));
 };
 
+const isInvitationLink = (pathname: string) => {
+  return pathname.startsWith('/view-invitation/');
+};
+
 export default clerkMiddleware((req: ClerkMiddlewareAuth) => {
+  const { pathname } = req.nextUrl;
 
-  const { pathname } = req.nextUrl; 
-
+  if (isInvitationLink(pathname)) {
+    const inviteId = pathname.split('/').pop();
+    return NextResponse.next();
+  }
+  
   if (isPublicRoute(pathname)) {
     return NextResponse.next(); 
   }
-
-  
-  return NextResponse.redirect('/sign-in');
+  return NextResponse.redirect(`${req.nextUrl.origin}/sign-in`);
 });
 
 
