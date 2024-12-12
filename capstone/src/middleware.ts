@@ -1,30 +1,11 @@
 import { clerkMiddleware, ClerkMiddlewareAuth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 
+const isProtectedRoute = createRouteMatcher(['/invite', '/view-invitation', '/api'])
 
-const isPublicRoute = (path: string) => {
-  return ['/sign-in', '/sign-up', '/invite'].some((publicPath) => path.startsWith(publicPath));
-};
-
-const isInvitationLink = (pathname: string) => {
-  return pathname.startsWith('/view-invitation/');
-};
-
-export default clerkMiddleware((req: ClerkMiddlewareAuth) => {
-  const { pathname } = req.nextUrl;
-
-  if (isInvitationLink(pathname)) {
-    const inviteId = pathname.split('/').pop();
-    return NextResponse.next();
-  }
-  
-  if (isPublicRoute(pathname)) {
-    return NextResponse.next(); 
-  }
-  return NextResponse.redirect(`${req.nextUrl.origin}/sign-in`);
-});
-
-
+export default clerkMiddleware(async (auth, req) => {
+  if (isProtectedRoute(req)) await auth.protect()
+})
 
 export const config = {
   matcher: [

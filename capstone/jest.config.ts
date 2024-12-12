@@ -177,7 +177,6 @@ const config: Config = {
   // A map from regular expressions to paths to transformers
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest', // Transform TypeScript and TSX files with ts-jest
-    '^.+\\.(js|jsx)$': 'babel-jest', // Transform JavaScript and JSX files with babel-jest
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
