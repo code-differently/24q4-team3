@@ -144,7 +144,7 @@ export default function WishlistForm() {
       </form>
 
       {/* Wishlist items */}
-      <div className="space-y-4 mt-4">
+      <div className="space-y-4 mt-4 max-h-48 overflow-auto">
         {wishlist.map((item, index) => (
           <div
             key={index}
