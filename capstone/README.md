@@ -7,7 +7,7 @@ A festive webapp where users can build and share a personalized, interactive wis
 
 
 ## Demo
-Here is a working live demo :  [to be added]
+View the app live:  https://24q4-team3-jade.vercel.app/
 
 <!-- GETTING STARTED -->
 ## Getting Started
