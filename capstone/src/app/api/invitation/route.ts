@@ -28,9 +28,7 @@ export async function POST(req: Request) {
       recipientEmail,
       permissions: 'read-only',
     });
-
-    console.log('Invite saved to database:', inviteId);
-
+    
  
     const transporter = nodemailer.createTransport({
       service: "Gmail",
