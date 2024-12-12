@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import crypto from 'crypto'; 
 import { saveInviteToDatabase } from '../../lib/mongodb';
