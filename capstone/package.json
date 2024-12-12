@@ -2,24 +2,33 @@
   "name": "capstone",
   "version": "0.1.0",
   "private": true,
+  "description": "",
+  "main": "index.ts",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest"  
+
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@clerk/nextjs": "^6.8.0",
+    "@clerk/nextjs": "^6.9.0",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.3",
-    "next": "15.0.3",
+    "next": "^15.0.3",
+    "nodemailer": "^6.9.16",
     "open-graph-scraper": "^6.8.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
@@ -30,6 +39,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "babel-jest": "^29.7.0",

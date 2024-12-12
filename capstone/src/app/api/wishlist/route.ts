@@ -7,29 +7,29 @@ interface WishlistItem {
   url: string;
 }
 
-// Function to get the title
+
 async function getTitleFromHTML(url: string) {
   try {
-    // Send the GET request with custom headers and timeout
+   
     const { data } = await axios.get(url, {
       headers: { 
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36' 
       },
-      timeout: 5000, // Timeout after 5 seconds
+      timeout: 5000, 
     });
 
-    // Load the HTML into cheerio
+
     const $ = cheerio.load(data);
 
-    // Try to extract the title from Open Graph metadata
+   
     let title = $('meta[property="og:title"]').attr('content');
 
-    // If `og:title` is not found, try to extract the `<title>` tag
+   
     if (!title) {
       title = $('title').text().trim();
     }
 
-    // If still no title, fallback to a default value
+   
     return title || 'No Title Found';
   } catch (error: unknown) {
     if (error instanceof Error) {
@@ -49,16 +49,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
 
-    // Get the title from the URL
+   
     const title = await getTitleFromHTML(url);
 
-    // Construct the new wishlist item
+   
     const newItem: WishlistItem = {
       title,
       url,
     };
 
-    // MongoDB interaction to store the item
+   
     const clientPromise = import('../../lib/mongodb').then((mod) => mod.default);
     const client = await clientPromise;
     const database = client.db('wishlistDB');
@@ -85,7 +85,7 @@ export async function DELETE(request: Request) {
       return new Response(JSON.stringify({ error: 'URL is required' }), { status: 400 });
     }
 
-    // MongoDB interaction to delete the item
+    
     const clientPromise = import('../../lib/mongodb').then(mod => mod.default);
     const client = await clientPromise;
     const database = client.db('wishlistDB');
